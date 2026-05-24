@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  /* Backgrounds */
+  --background: #060608;
+  --background-secondary: #0A0A0C;
+  --background-card: #0E0E10;
+  --background-elevated: #18181B;
+
+  /* Borders */
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.15);
+
+  /* Typography */
+  --text-primary: #FFFFFF;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+
+  /* Accents - Vercel/Linear style */
+  --accent-gold: #38BDF8; /* Sky Blue */
+  --accent-blue: #818CF8; /* Indigo */
+  --accent-cyan: #2DD4BF; /* Teal */
+  --accent-green: #34D399; /* Emerald */
+
+  /* Glows */
+  --glow-gold: rgba(56, 189, 248, 0.15);
+  --glow-blue: rgba(129, 140, 248, 0.15);
+  --glow-cyan: rgba(45, 212, 191, 0.15);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+body {
+  color: var(--text-primary);
+  font-family: var(--font-sans), sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* ── Selection colour ────────────────────────────────────────────────────── */
+::selection {
+  background: rgba(0,255,65, 0.3);
+  color: #E0FFE0;
+}
+
+/* ── Custom scrollbar ────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ── Base focus styles ───────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ── Lenis smooth scrolling ──────────────────────────────────────────────── */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* ── React Flow custom overrides ─────────────────────────────────────────── */
+.react-flow__pane {
+  cursor: grab;
+}
+.react-flow__pane:active {
+  cursor: grabbing;
+}
+.react-flow__controls {
+  box-shadow: none !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-sm) !important;
+  overflow: hidden;
+  background: var(--background-card) !important;
+}
+.react-flow__controls-button {
+  background: var(--background-card) !important;
+  border-bottom: 1px solid var(--border) !important;
+  fill: var(--text-secondary) !important;
+  transition: all 200ms ease;
+}
+.react-flow__controls-button:hover {
+  background: var(--background-elevated) !important;
+  fill: var(--text-primary) !important;
+}
+.react-flow__controls-button:last-child {
+  border-bottom: none !important;
+}
+
+/* ── Global keyframes ────────────────────────────────────────────────────── */
+@keyframes float-firefly {
+  0% { transform: translate(0, 0) scale(0.5); opacity: 0; }
+  25% { opacity: 0.8; }
+  50% { transform: translate(20px, -20px) scale(1.2); opacity: 1; }
+  75% { opacity: 0.6; }
+  100% { transform: translate(-20px, -40px) scale(0.5); opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes grid-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

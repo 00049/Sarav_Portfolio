@@ -1,12 +1,7 @@
 "use client";
 
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import dynamic from "next/dynamic";
-
-const ArchitectureDiagram = dynamic(
-  () => import("@/components/diagrams/ArchitectureDiagram"),
-  { ssr: false, loading: () => <div style={{ height: 500, display: "flex", alignItems: "center", justifyContent: "center" }}>Loading diagram...</div> }
-);
+import ArchitectureDiagram from "@/components/diagrams/ArchitectureDiagram";
 
 interface CaseStudyArchitectureProps {
   headline: string;

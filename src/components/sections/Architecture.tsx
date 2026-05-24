@@ -1,39 +1,8 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/layout/SectionHeader";
-
-const ArchitectureDiagram = dynamic(
-  () => import("@/components/diagrams/ArchitectureDiagram"),
-  {
-    ssr: false,
-    loading: () => (
-      <div
-        style={{
-          width: "100%",
-          height: "600px",
-          background: "var(--background-card)",
-          border: "1px solid var(--border)",
-          borderRadius: "var(--radius-lg)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <span
-          style={{
-            fontFamily: "var(--font-geist-mono)",
-            fontSize: "12px",
-            color: "var(--text-muted)",
-          }}
-        >
-          Loading architecture diagram...
-        </span>
-      </div>
-    ),
-  }
-);
+import ArchitectureDiagram from "@/components/diagrams/ArchitectureDiagram";
 
 export function Architecture() {
   const legends = [

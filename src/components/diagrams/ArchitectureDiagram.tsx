@@ -31,12 +31,39 @@ export default function ArchitectureDiagram({ projectId = "naanz" }: { projectId
 
   const [nodes, , onNodesChange] = useNodesState(initialNodes);
   const [edges, , onEdgesChange] = useEdgesState(initialEdges);
+  const [mounted, setMounted] = useState(false);
   const [showHint, setShowHint] = useState(true);
 
   useEffect(() => {
+    setMounted(true);
     const timer = setTimeout(() => setShowHint(false), 3000);
     return () => clearTimeout(timer);
   }, []);
+
+  if (!mounted) {
+    return (
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          background: "var(--background-card)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <span
+          style={{
+            fontFamily: "var(--font-geist-mono)",
+            fontSize: "12px",
+            color: "var(--text-muted)",
+          }}
+        >
+          Loading diagram...
+        </span>
+      </div>
+    );
+  }
 
   return (
     <div

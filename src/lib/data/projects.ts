@@ -54,7 +54,7 @@ export const projects: Project[] = [
       },
     ],
     problemStatement:
-      "Security audits are expensive, slow, and produce reports that non-technical stakeholders cannot act on. NAANZ automates vulnerability scanning across SSL/TLS, DNS, and open-port attack surfaces, then uses an LLM to translate raw findings into plain-language business impact reports — making security intelligence accessible without a dedicated security team.",
+      "Inspired by Razorpay's 'Fix My Itch' initiative, NAANZ addresses the challenge of making affordable cybersecurity checks accessible to small businesses. Security audits are expensive, slow, and produce reports that non-technical stakeholders cannot act on. NAANZ automates vulnerability scanning across SSL/TLS, DNS, and open-port attack surfaces, then uses an LLM to translate raw findings into plain-language business impact reports — making security intelligence accessible without a dedicated security team.",
     architectureSummary:
       "Distributed scanning pipeline built on FastAPI + Celery + Redis. Each scan job is broken into concurrent async workers, eliminating request-blocking bottlenecks. PostgreSQL with Alembic migrations handles persistent state. Razorpay + HMAC verification + JWT governs monetization and access control. Claude API processes raw vulnerability data into structured reports. Full Docker containerization ensures environment reproducibility.",
     securityHighlights: [

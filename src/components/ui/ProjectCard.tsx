@@ -32,8 +32,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
         style={{
           height: 3,
           background: isLive
-            ? "linear-gradient(90deg, #2D6BE4 0%, #9B9BAE 100%)"
-            : "linear-gradient(90deg, #3a3a4a 0%, #2a2a3a 100%)",
+            ? "linear-gradient(90deg, #FFFFFF 0%, #A1A1AA 100%)"
+            : "linear-gradient(90deg, #3f3f46 0%, #27272a 100%)",
           flexShrink: 0,
         }}
       />
@@ -62,12 +62,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <h3
           style={{
             fontSize: 20,
-            fontWeight: 600,
             color: "var(--text-primary)",
             letterSpacing: "-0.01em",
             margin: 0,
-            marginBottom: 8,
-            fontFamily: "var(--font-geist-sans)",
+            fontFamily: "var(--font-playfair)",
+            fontWeight: 500,
           }}
         >
           {project.title}
@@ -100,9 +99,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
               style={{
                 fontSize: 11,
                 fontFamily: "var(--font-geist-mono)",
-                color: isLive ? "rgba(45,107,228,0.9)" : "var(--text-muted)",
-                background: isLive ? "rgba(45,107,228,0.08)" : "var(--background-elevated)",
-                border: `1px solid ${isLive ? "rgba(45,107,228,0.2)" : "var(--border)"}`,
+                color: isLive ? "var(--text-primary)" : "var(--text-muted)",
+                background: isLive ? "rgba(255, 255, 255, 0.08)" : "var(--background-elevated)",
+                border: `1px solid ${isLive ? "rgba(255, 255, 255, 0.2)" : "var(--border)"}`,
                 padding: "3px 10px",
                 borderRadius: 4,
               }}
@@ -137,7 +136,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             gap: 6,
             fontSize: 13,
             fontWeight: 500,
-            color: "var(--accent-gold)",
+            color: "var(--text-primary)",
             textDecoration: "none",
             transition: "gap 200ms ease",
           }}
@@ -150,7 +149,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         .project-card-group:hover {
           border-color: var(--border-hover);
           transform: translateY(-3px);
-          box-shadow: 0 12px 40px rgba(45,107,228,0.15), 0 4px 12px rgba(0,0,0,0.3);
+          box-shadow: 0 12px 40px rgba(255,255,255,0.05), 0 4px 12px rgba(0,0,0,0.5);
         }
         .project-card-group:hover .project-card-cta {
           gap: 10px;

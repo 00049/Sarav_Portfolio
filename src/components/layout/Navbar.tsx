@@ -129,7 +129,7 @@ function MobileMenu({ isOpen, onClose, activePath }: MobileMenuProps) {
                 fontWeight: 500,
                 color: "#000",
                 background: "var(--accent-gold)",
-                borderRadius: "var(--radius-md)",
+                borderRadius: "999px",
                 fontFamily: "var(--font-geist-sans)",
                 textDecoration: "none",
               }}
@@ -170,8 +170,8 @@ export function Navbar() {
         }}
       >
         <div style={{ flex: 1 }}>
-          <Link href="/" className="font-mono text-lg font-bold" style={{ color: "var(--text-primary)", textDecoration: "none" }}>
-            Saravpreet Singh Pruthi<span style={{ color: "var(--accent-gold)", filter: scrolled ? "drop-shadow(0 0 6px rgba(45,107,228,0.8))" : "none", transition: "filter 400ms ease" }}>.</span>
+          <Link href="/" className="font-serif text-2xl font-medium tracking-tight" style={{ color: "var(--text-primary)", textDecoration: "none", fontFamily: "var(--font-playfair)" }}>
+            Saravpreet<span style={{ color: "var(--text-secondary)" }}>.</span>
           </Link>
         </div>
 
@@ -241,15 +241,25 @@ export function Navbar() {
               alignItems: "center",
               gap: 6,
               padding: "8px 16px",
-              fontSize: 13,
+              fontSize: 12,
+              letterSpacing: "0.05em",
+              textTransform: "uppercase",
               fontWeight: 500,
-              color: "var(--accent-gold)",
-              background: "rgba(45,107,228, 0.1)",
-              border: "1px solid rgba(45,107,228, 0.2)",
-              borderRadius: "var(--radius-sm)",
+              color: "var(--text-primary)",
+              background: "transparent",
+              border: "1px solid var(--border)",
+              borderRadius: "999px",
               fontFamily: "var(--font-geist-sans)",
               textDecoration: "none",
               transition: "all 300ms ease",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.background = "var(--text-primary)";
+              (e.currentTarget as HTMLAnchorElement).style.color = "#000";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
+              (e.currentTarget as HTMLAnchorElement).style.color = "var(--text-primary)";
             }}
           >
             <Download size={14} className="group-hover:translate-y-[1px] transition-transform" />

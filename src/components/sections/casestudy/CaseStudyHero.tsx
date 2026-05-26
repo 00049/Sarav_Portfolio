@@ -56,7 +56,7 @@ export function CaseStudyHero({
         <span style={{ fontSize: 13, fontFamily: "var(--font-geist-mono)", color: "var(--text-muted)" }}>{readTime}</span>
       </div>
 
-      <h1 style={{ fontSize: "clamp(40px, 6vw, 64px)", fontWeight: 600, color: "var(--text-primary)", letterSpacing: "-0.03em", lineHeight: 1.1, margin: 0, marginBottom: 24, fontFamily: "var(--font-geist-sans)" }}>
+      <h1 style={{ fontSize: "clamp(48px, 6vw, 72px)", fontWeight: 500, color: "var(--text-primary)", letterSpacing: "-0.03em", lineHeight: 1.1, margin: 0, marginBottom: 24, fontFamily: "var(--font-playfair)" }}>
         {title}
       </h1>
 
@@ -84,12 +84,12 @@ export function CaseStudyHero({
       {(githubUrl || liveUrl) && (
         <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
           {liveUrl && (
-            <a href={liveUrl} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "12px 24px", fontSize: 14, fontWeight: 500, color: "#F2E5C6", background: "var(--accent-gold)", borderRadius: "var(--radius-md)", textDecoration: "none", transition: "all 200ms ease" }}>
+            <a href={liveUrl} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "12px 24px", fontSize: 14, fontWeight: 500, color: "#000000", background: "#FFFFFF", borderRadius: "999px", textDecoration: "none", transition: "all 200ms ease", boxShadow: "0 4px 14px rgba(255,255,255,0.15)" }}>
               <ExternalLink size={16} /> Live Project
             </a>
           )}
           {githubUrl && (
-            <a href={githubUrl} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "12px 24px", fontSize: 14, fontWeight: 500, color: "var(--text-secondary)", background: "transparent", border: "1px solid var(--border)", borderRadius: "var(--radius-md)", textDecoration: "none", transition: "all 200ms ease" }}>
+            <a href={githubUrl} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "12px 24px", fontSize: 14, fontWeight: 500, color: "var(--text-primary)", background: "transparent", border: "1px solid var(--border)", borderRadius: "999px", textDecoration: "none", transition: "all 200ms ease" }}>
               <Github size={16} /> Repository
             </a>
           )}

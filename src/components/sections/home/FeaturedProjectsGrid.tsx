@@ -27,13 +27,13 @@ export function FeaturedProjectsGrid({ projects }: FeaturedProjectsGridProps) {
           <SectionLabel text="Featured Work" />
           <h2
             style={{
-              fontSize: "clamp(28px, 4vw, 42px)",
-              fontWeight: 600,
+              fontSize: "clamp(36px, 5vw, 56px)",
+              fontWeight: 500,
               color: "var(--text-primary)",
               letterSpacing: "-0.02em",
               margin: 0,
               marginBottom: 48,
-              fontFamily: "var(--font-geist-sans)",
+              fontFamily: "var(--font-playfair)",
             }}
           >
             Built for production.

@@ -50,14 +50,14 @@ export function SocialProofBar() {
               whiteSpace: "nowrap",
             }}
           >
-            <item.icon size={14} style={{ color: "var(--accent-gold)", opacity: 0.8 }} />
+            <item.icon size={14} style={{ color: "var(--text-secondary)" }} />
             {item.href ? (
               <a
                 href={item.href}
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-white transition-colors"
-                style={{ color: "var(--accent-gold)", textDecoration: "underline" }}
+                style={{ color: "var(--text-primary)", borderBottom: "1px solid var(--border)", paddingBottom: "2px" }}
               >
                 {item.label}
               </a>

@@ -3,6 +3,7 @@
 @theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-playfair);
 }
 
 :root {
@@ -21,16 +22,16 @@
   --text-secondary: #A1A1AA;
   --text-muted: #71717A;
 
-  /* Accents - Vercel/Linear style */
-  --accent-gold: #38BDF8; /* Sky Blue */
-  --accent-blue: #818CF8; /* Indigo */
-  --accent-cyan: #2DD4BF; /* Teal */
-  --accent-green: #34D399; /* Emerald */
+  /* Accents - Elegant Monochrome */
+  --accent-gold: #EAEAEA; 
+  --accent-blue: #D4D4D8; 
+  --accent-cyan: #A1A1AA; 
+  --accent-green: #71717A; 
 
-  /* Glows */
-  --glow-gold: rgba(56, 189, 248, 0.15);
-  --glow-blue: rgba(129, 140, 248, 0.15);
-  --glow-cyan: rgba(45, 212, 191, 0.15);
+  /* Glows - Muted / Minimal */
+  --glow-gold: rgba(255, 255, 255, 0.05);
+  --glow-blue: rgba(255, 255, 255, 0.03);
+  --glow-cyan: rgba(255, 255, 255, 0.02);
 
   /* Radius */
   --radius-sm: 6px;
@@ -47,8 +48,8 @@ body {
 
 /* ── Selection colour ────────────────────────────────────────────────────── */
 ::selection {
-  background: rgba(0,255,65, 0.3);
-  color: #E0FFE0;
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
 }
 
 /* ── Custom scrollbar ────────────────────────────────────────────────────── */

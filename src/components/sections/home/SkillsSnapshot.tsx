@@ -10,55 +10,55 @@ const skillsData = [
   {
     domain: "Security & SIEM",
     icon: Shield,
-    color: "#232333",
+    color: "#EAEAEA",
     skills: ["IBM QRadar", "FortiSIEM", "FortiSOAR", "FortiGate", "Kali Linux", "Wireshark", "Nmap"],
   },
   {
     domain: "Networking",
     icon: Network,
-    color: "#9B9BAE",
+    color: "#D4D4D8",
     skills: ["TCP/IP", "VLANs", "SSL/TLS", "DNS (SPF/DMARC)", "Firewall Config"],
   },
   {
     domain: "Backend",
     icon: Server,
-    color: "#2D6BE4",
+    color: "#A1A1AA",
     skills: ["FastAPI", "AsyncIO", "Celery", "Redis", "REST API", "SQLAlchemy", "JWT", "HMAC"],
   },
   {
     domain: "Programming",
     icon: Terminal,
-    color: "#707086",
+    color: "#EAEAEA",
     skills: ["Python", "TypeScript", "SQL"],
   },
   {
     domain: "AI/Integrations",
     icon: Cpu,
-    color: "#A855F7",
+    color: "#D4D4D8",
     skills: ["LLM Integration", "Claude API", "Razorpay"],
   },
   {
     domain: "DevOps",
     icon: GitBranch,
-    color: "#F59E0B",
+    color: "#A1A1AA",
     skills: ["Docker", "Git", "Async Architecture"],
   },
   {
     domain: "Databases",
     icon: Database,
-    color: "#10B981",
+    color: "#EAEAEA",
     skills: ["PostgreSQL", "Alembic"],
   },
   {
     domain: "Frontend",
     icon: Layout,
-    color: "#EC4899",
+    color: "#D4D4D8",
     skills: ["Next.js 14", "React.js"],
   },
   {
     domain: "OT/ICS",
     icon: Factory,
-    color: "#F97316",
+    color: "#A1A1AA",
     skills: ["CODESYS", "PLC Programming", "Modbus TCP", "Purdue Model", "IEC 62443"],
   },
 ];
@@ -96,10 +96,11 @@ export function SkillsSnapshot() {
           <div>
             <SectionLabel text="The Full Stack" />
             <h2
-              className="text-3xl md:text-5xl font-bold mt-4"
+              className="text-4xl md:text-6xl mt-4"
               style={{
                 color: "var(--text-primary)",
-                fontFamily: "var(--font-geist-sans)",
+                fontFamily: "var(--font-playfair)",
+                fontWeight: 500,
                 letterSpacing: "-0.02em",
               }}
             >
@@ -122,17 +123,17 @@ export function SkillsSnapshot() {
             transition={{ duration: 0.5 }}
             className="group relative flex flex-col sm:flex-row items-center gap-6 p-6 md:p-8 rounded-2xl border mb-16 cursor-pointer"
             style={{
-              background: "linear-gradient(135deg, rgba(45,107,228,0.06) 0%, var(--background-card) 100%)",
-              borderColor: "rgba(45,107,228,0.2)",
+              background: "linear-gradient(135deg, rgba(255,255,255,0.02) 0%, var(--background-card) 100%)",
+              borderColor: "rgba(255,255,255,0.1)",
               transition: "all 300ms ease",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(45,107,228,0.5)";
-              (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 32px rgba(45,107,228,0.15)";
+              (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(255,255,255,0.3)";
+              (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 32px rgba(255,255,255,0.05)";
               (e.currentTarget as HTMLDivElement).style.transform = "translateY(-2px)";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(45,107,228,0.2)";
+              (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(255,255,255,0.1)";
               (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
               (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
             }}
@@ -140,12 +141,12 @@ export function SkillsSnapshot() {
             <div
               className="flex items-center justify-center w-16 h-16 rounded-xl flex-shrink-0"
               style={{
-                background: "linear-gradient(135deg, rgba(45,107,228,0.15) 0%, rgba(0,212,255,0.08) 100%)",
-                border: "1px solid rgba(45,107,228, 0.3)",
-                boxShadow: "0 0 20px rgba(45,107,228,0.15)",
+                background: "linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%)",
+                border: "1px solid rgba(255,255,255, 0.15)",
+                boxShadow: "0 0 20px rgba(255,255,255,0.05)",
               }}
             >
-              <Award size={32} style={{ color: "var(--accent-gold)" }} />
+              <Award size={32} style={{ color: "var(--text-primary)" }} />
             </div>
             <div className="flex-grow text-center sm:text-left">
               <h3
@@ -161,7 +162,7 @@ export function SkillsSnapshot() {
             </div>
             <div
               className="flex items-center gap-2 text-sm font-medium whitespace-nowrap"
-              style={{ color: "var(--accent-gold)" }}
+              style={{ color: "var(--text-primary)" }}
             >
               View Details <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </div>
@@ -288,7 +289,7 @@ export function SkillsSnapshot() {
               style={{
                 height: "100%",
                 width: `${scrollProgress * 100}%`,
-                background: "linear-gradient(90deg, var(--accent-gold) 0%, var(--accent-cyan) 100%)",
+                background: "linear-gradient(90deg, #3f3f46 0%, #FFFFFF 100%)",
                 borderRadius: 999,
                 transition: "width 80ms linear",
                 minWidth: scrollProgress > 0 ? 32 : 0,

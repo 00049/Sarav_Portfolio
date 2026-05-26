@@ -39,13 +39,14 @@ export default function Footer() {
             <Link href="/" style={{ textDecoration: "none" }}>
               <span
                 style={{
-                  fontFamily: "var(--font-geist-mono)",
-                  fontSize: 22,
-                  fontWeight: 700,
+                  fontFamily: "var(--font-playfair)",
+                  fontSize: 26,
+                  fontWeight: 500,
+                  letterSpacing: "-0.02em",
                   color: "var(--text-primary)",
                 }}
               >
-                SSP<span style={{ color: "var(--accent-gold)" }}>.</span>
+                Saravpreet<span style={{ color: "var(--text-secondary)", fontStyle: "italic" }}>.</span>
               </span>
             </Link>
             <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.6, maxWidth: 220 }}>
@@ -53,18 +54,20 @@ export default function Footer() {
             </p>
             {/* Availability pill */}
             <div
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full w-fit"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full w-fit mt-2"
               style={{
-                background: "rgba(45,107,228,0.08)",
-                border: "1px solid rgba(45,107,228,0.2)",
+                background: "var(--background-elevated)",
+                border: "1px solid var(--border)",
                 fontSize: 11,
                 fontFamily: "var(--font-geist-mono)",
-                color: "var(--accent-green)",
+                color: "var(--text-primary)",
+                textTransform: "uppercase",
+                letterSpacing: "0.05em",
               }}
             >
               <span
-                className="w-1.5 h-1.5 rounded-full"
-                style={{ background: "var(--accent-green)", boxShadow: "0 0 6px var(--accent-green)" }}
+                className="w-1.5 h-1.5 rounded-full bg-white"
+                style={{ boxShadow: "0 0 6px rgba(255,255,255,0.5)" }}
               />
               Available for hire
             </div>

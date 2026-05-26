@@ -36,10 +36,11 @@ export function AboutTeaser() {
           >
             <SectionLabel text="The Engineer" />
             <h2
-              className="text-3xl md:text-5xl font-bold mt-4 mb-8"
+              className="text-4xl md:text-6xl mt-4 mb-8"
               style={{
                 color: "var(--text-primary)",
-                fontFamily: "var(--font-geist-sans)",
+                fontFamily: "var(--font-playfair)",
+                fontWeight: 500,
                 letterSpacing: "-0.02em",
               }}
             >
@@ -198,7 +199,7 @@ export function AboutTeaser() {
                 <div
                   className="absolute inset-0 pointer-events-none"
                   style={{
-                    backgroundImage: "radial-gradient(circle, rgba(45,107,228,0.12) 1px, transparent 1px)",
+                    backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)",
                     backgroundSize: "24px 24px",
                   }}
                 />
@@ -212,19 +213,18 @@ export function AboutTeaser() {
                 <div
                   className="relative z-10 flex items-center justify-center w-28 h-28 rounded-2xl mb-6"
                   style={{
-                    background: "linear-gradient(135deg, rgba(45,107,228,0.15) 0%, rgba(0,212,255,0.08) 100%)",
-                    border: "1px solid rgba(45,107,228,0.3)",
-                    boxShadow: "0 0 32px rgba(45,107,228,0.2), inset 0 0 24px rgba(45,107,228,0.05)",
+                    background: "linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    boxShadow: "0 0 32px rgba(255,255,255,0.03), inset 0 0 24px rgba(255,255,255,0.02)",
                   }}
                 >
                   <span
                     style={{
-                      fontSize: 40,
-                      fontWeight: 700,
-                      fontFamily: "var(--font-geist-mono)",
-                      color: "var(--accent-gold)",
+                      fontSize: 44,
+                      fontWeight: 500,
+                      fontFamily: "var(--font-playfair)",
+                      color: "var(--text-primary)",
                       letterSpacing: "-0.02em",
-                      textShadow: "0 0 24px rgba(45,107,228,0.6)",
                     }}
                   >
                     SSP
@@ -249,17 +249,18 @@ export function AboutTeaser() {
                 <div
                   className="relative z-10 inline-flex items-center gap-2 px-3 py-1.5 rounded-full"
                   style={{
-                    background: "rgba(0, 200, 150, 0.08)",
-                    border: "1px solid rgba(0, 200, 150, 0.25)",
+                    background: "var(--background-elevated)",
+                    border: "1px solid var(--border)",
                     fontSize: 11,
                     fontFamily: "var(--font-geist-mono)",
-                    color: "var(--accent-green)",
+                    color: "var(--text-primary)",
                     letterSpacing: "0.04em",
+                    textTransform: "uppercase",
                   }}
                 >
                   <span
-                    className="w-1.5 h-1.5 rounded-full"
-                    style={{ background: "var(--accent-green)", boxShadow: "0 0 6px var(--accent-green)", animation: "pulse 2s ease-in-out infinite" }}
+                    className="w-1.5 h-1.5 rounded-full bg-white"
+                    style={{ boxShadow: "0 0 6px rgba(255,255,255,0.5)", animation: "pulse 2s ease-in-out infinite" }}
                   />
                   Available for hire
                 </div>
@@ -286,11 +287,11 @@ export function AboutTeaser() {
                   <div
                     className="px-2 py-0.5 rounded"
                     style={{
-                      background: "rgba(45,107,228,0.1)",
-                      border: "1px solid rgba(45,107,228,0.2)",
+                      background: "rgba(255,255,255,0.05)",
+                      border: "1px solid var(--border)",
                       fontSize: 10,
                       fontFamily: "var(--font-geist-mono)",
-                      color: "var(--accent-gold)",
+                      color: "var(--text-primary)",
                       letterSpacing: "0.06em",
                     }}
                   >

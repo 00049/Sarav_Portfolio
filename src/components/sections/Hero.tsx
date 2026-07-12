@@ -2,6 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Playfair_Display } from "next/font/google";
 import { ArrowDownRight } from "lucide-react";
 import { useMotionContext } from "@/components/motion/MotionProvider";
@@ -56,7 +57,7 @@ export function Hero() {
       />
 
       {/* ── Main Content ─────────────────────────────────────────────────── */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto text-center flex flex-col items-center justify-center flex-1 w-full pt-20 pb-10">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto text-center flex flex-col items-center justify-center flex-1 pt-20 pb-10">
         
         <motion.div
           variants={containerVariants}
@@ -65,7 +66,17 @@ export function Hero() {
           className="flex flex-col items-center w-full"
          suppressHydrationWarning>
           {/* Top Label */}
-          <motion.div variants={itemVariants} className="mb-8 md:mb-12" suppressHydrationWarning>
+          <motion.div variants={itemVariants} className="mb-8 md:mb-12 flex flex-col items-center gap-5" suppressHydrationWarning>
+            <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border border-zinc-800 shadow-2xl">
+              <Image 
+                src="/profile.jpg" 
+                alt="Saravpreet Singh Pruthi" 
+                fill 
+                sizes="80px"
+                className="object-cover" 
+                style={{ objectPosition: "center top" }} 
+              />
+            </div>
             <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-zinc-500 font-medium">
               Offensive Security & Systems Architecture
             </span>

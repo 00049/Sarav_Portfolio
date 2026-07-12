@@ -6,6 +6,7 @@ import { aboutData } from "@/lib/data/about";
 import { MapPin, Mail } from "lucide-react";
 import { FiGithub as Github, FiLinkedin as Linkedin } from "react-icons/fi";
 import Link from "next/link";
+import Image from "next/image";
 import { NodeGraphic } from "@/components/ui/NodeGraphic";
 
 function Label({ children }: { children: React.ReactNode }) {
@@ -241,8 +242,26 @@ export function About() {
                 padding: 28,
               }}
             >
-              {/* Top Avatar - Node Graphic */}
-              <NodeGraphic size={64} />
+              {/* Top Avatar - Profile Picture */}
+              <div
+                style={{
+                  width: 80,
+                  height: 80,
+                  borderRadius: "50%",
+                  overflow: "hidden",
+                  border: "2px solid var(--border)",
+                  position: "relative",
+                  marginBottom: 8,
+                }}
+              >
+                <Image
+                  src="/profile.jpg"
+                  alt="Saravpreet Singh Pruthi"
+                  fill
+                  sizes="80px"
+                  style={{ objectFit: "cover", objectPosition: "center top" }}
+                />
+              </div>
 
               <div
                 style={{

@@ -36,7 +36,7 @@ export function CaseStudies() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: idx * 0.1 + 0.1 }}
-            >
+             suppressHydrationWarning>
               <CaseStudyCard caseStudy={caseStudy} />
             </motion.div>
           ))}
@@ -54,7 +54,7 @@ export function CaseStudies() {
             color: "var(--text-muted)",
             textAlign: "center",
           }}
-        >
+         suppressHydrationWarning>
           Additional case studies added as projects ship.
         </motion.div>
       </div>

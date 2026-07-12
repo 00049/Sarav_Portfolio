@@ -3,10 +3,11 @@ import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
 import { Navbar } from "@/components/layout/Navbar";
-import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
-import { LiveBackground } from "@/components/ui/LiveBackground";
+import { DynamicBackgrounds } from "@/components/ui/DynamicBackgrounds";
 import { LenisProvider } from "@/components/motion/LenisProvider";
+import { MotionProvider } from "@/components/motion/MotionProvider";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
+import { CommandPaletteProvider } from "@/components/ui/CommandPalette";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -125,25 +126,28 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className="antialiased">
-        <NoiseOverlay />
-        <LiveBackground />
-        <Navbar />
-        <a 
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[var(--accent-gold)] focus:text-[#0A0A0F] focus:rounded focus:font-medium focus:text-sm focus:outline-none"
-        >
-          Skip to main content
-        </a>
+      <body className="antialiased bg-blueprint-grid">
+        <MotionProvider>
+          <a 
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[var(--accent-gold)] focus:text-[#0A0A0F] focus:rounded focus:font-medium focus:text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#0A0A0F]"
+          >
+            Skip to main content
+          </a>
+          <DynamicBackgrounds />
+          <Navbar />
 
-        {/* Scroll progress bar — rendered above LenisProvider so it's always
-            accessible even if LenisProvider throws */}
-        <ScrollProgress />
+          {/* Scroll progress bar — rendered above LenisProvider so it's always
+              accessible even if LenisProvider throws */}
+          <ScrollProgress />
 
-        {/* Lenis smooth scroll wrapper */}
-        <LenisProvider>
-          {children}
-        </LenisProvider>
+          {/* Lenis smooth scroll wrapper */}
+          <CommandPaletteProvider>
+            <LenisProvider>
+              {children}
+            </LenisProvider>
+          </CommandPaletteProvider>
+        </MotionProvider>
       </body>
     </html>
   );

@@ -43,6 +43,7 @@ export function FadeInSection({
       initial={{ opacity: 0, y: yOffsets[direction], x: xOffsets[direction] }}
       whileInView={{ opacity: 1, y: 0, x: 0 }}
       viewport={{ once: true, margin: "-50px" }}
+      suppressHydrationWarning
       transition={{
         duration: 0.6,
         delay,

@@ -15,7 +15,7 @@ export default function Loading() {
           borderColor: "var(--border)",
           boxShadow: "0 0 40px var(--glow-gold)",
         }}
-      >
+       suppressHydrationWarning>
         <div className="text-3xl font-bold font-mono" style={{ color: "var(--text-primary)" }}>
           SSP<span style={{ color: "var(--accent-gold)" }}>.</span>
         </div>

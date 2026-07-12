@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 
 const SITE_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Projects", href: "/projects" },
+  { label: "Projects", href: "/work" },
   { label: "Skills", href: "/skills" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },

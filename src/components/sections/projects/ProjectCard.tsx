@@ -17,6 +17,53 @@ function GitHubIcon({ size = 14 }: { size?: number }) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// Metric Item Row — parses numbers into monospace
+// ─────────────────────────────────────────────────────────────────────────────
+function MetricItem({ text }: { text: string }) {
+  const parts = text.split(/(\d+(?:[%+]|\.\d+)?)/);
+  return (
+    <span
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 6,
+        fontSize: 12,
+        color: "var(--text-muted)",
+        fontFamily: "var(--font-geist-sans)",
+      }}
+    >
+      <span
+        style={{
+          width: 4,
+          height: 4,
+          borderRadius: "50%",
+          backgroundColor: "var(--text-muted)",
+          opacity: 0.5,
+        }}
+      />
+      <span>
+        {parts.map((part, i) =>
+          /^\d+(?:[%+]|\.\d+)?$/.test(part) ? (
+            <span
+              key={i}
+              style={{
+                fontFamily: "var(--font-geist-mono)",
+                color: "var(--text-primary)",
+                fontWeight: 500,
+              }}
+            >
+              {part}
+            </span>
+          ) : (
+            <span key={i}>{part}</span>
+          )
+        )}
+      </span>
+    </span>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Status badge config
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -158,7 +205,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
             alignItems: "center",
             justifyContent: "center",
           }}
-        >
+         suppressHydrationWarning>
           {/* Abstract Wireframe Mesh based on project ID */}
           <div 
             className="w-full h-full opacity-30" 
@@ -259,6 +306,22 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
         </div>
       </div>
 
+      {/* ── Impact Metrics Row ───────────────────────────────────────── */}
+      {project.cardMetrics && project.cardMetrics.length > 0 && (
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "12px 16px",
+            marginTop: 16,
+          }}
+        >
+          {project.cardMetrics.map((metric, i) => (
+            <MetricItem key={i} text={metric} />
+          ))}
+        </div>
+      )}
+
       {/* ── Divider ──────────────────────────────────────────────────── */}
       <div
         style={{
@@ -307,56 +370,6 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
         </p>
       </div>
 
-      {/* ── Metrics 2×2 grid ─────────────────────────────────────────── */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
-          gap: 16,
-          paddingTop: 20,
-          borderTop: "1px solid var(--border)",
-        }}
-        className="metrics-grid"
-      >
-        {project.metrics.map((metric) => (
-          <div key={metric.label}>
-            <div
-              style={{
-                fontSize: 18,
-                fontFamily: "var(--font-geist-mono)",
-                fontWeight: 600,
-                color: "var(--text-primary)",
-                lineHeight: 1.2,
-              }}
-            >
-              {metric.value}
-            </div>
-            <div
-              style={{
-                fontSize: 12,
-                color: "var(--text-muted)",
-                marginTop: 2,
-                lineHeight: 1.4,
-              }}
-            >
-              {metric.label}
-            </div>
-            {metric.detail && (
-              <div
-                style={{
-                  fontSize: 11,
-                  color: "var(--text-muted)",
-                  fontStyle: "italic",
-                  marginTop: 2,
-                  lineHeight: 1.3,
-                  opacity: 0.75,
-                }}
-              >
-                {metric.detail}
-              </div>
-            )}
-          </div>
-        ))}
       </div>
 
       {/* ── Tech stack tags ──────────────────────────────────────────── */}
@@ -392,6 +405,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
       <div style={{ marginTop: 20 }}>
         <button
           onClick={() => setSecurityOpen((v) => !v)}
+          className="active-scale"
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -422,7 +436,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
             animate={{ rotate: securityOpen ? 180 : 0 }}
             transition={{ duration: 0.2 }}
             style={{ display: "inline-flex" }}
-          >
+           suppressHydrationWarning>
             <ChevronDown size={12} />
           </motion.span>
         </button>
@@ -437,7 +451,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
               style={{ overflow: "hidden" }}
-            >
+             suppressHydrationWarning>
               <ul
                 style={{
                   listStyle: "none",
@@ -576,16 +590,6 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
           </a>
         )}
       </div>
-      </div>
-
-      {/* ── Responsive: stack metrics to 1 col on mobile ─────────────── */}
-      <style>{`
-        @media (max-width: 600px) {
-          .metrics-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </div>
   );
 }

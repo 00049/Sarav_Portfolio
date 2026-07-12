@@ -45,7 +45,7 @@ export function Architecture() {
             gap: 20,
             marginBottom: 24,
           }}
-        >
+         suppressHydrationWarning>
           {legends.map((l) => (
             <div key={l.label} style={{ display: "flex", alignItems: "center", gap: 6 }}>
               <div style={{ width: 8, height: 8, borderRadius: "50%", background: l.color }} />
@@ -70,7 +70,7 @@ export function Architecture() {
           className="architecture-canvas"
           role="img"
           aria-label="NAANZ system architecture diagram showing the distributed scanning pipeline from client request through FastAPI, Celery workers, PostgreSQL, Claude API, to report delivery"
-        >
+         suppressHydrationWarning>
           <ArchitectureDiagram />
         </motion.div>
 

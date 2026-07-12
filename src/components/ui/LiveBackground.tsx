@@ -35,7 +35,7 @@ export function LiveBackground() {
           background: `radial-gradient(800px circle at ${mousePos.x}px ${mousePos.y}px, rgba(129, 140, 248, 0.06), transparent 100%)`,
         }}
         transition={{ type: "tween", ease: "linear", duration: 0.1 }}
-      />
+       suppressHydrationWarning />
     </div>
   );
 }

@@ -32,7 +32,7 @@ export function CaseStudyHero({
   return (
     <section style={{ paddingTop: 140, paddingBottom: 60, paddingInline: 24, maxWidth: 900, margin: "0 auto" }}>
       <Link
-        href="/projects"
+        href="/"
         style={{
           display: "inline-flex",
           alignItems: "center",
@@ -45,7 +45,7 @@ export function CaseStudyHero({
           transition: "color 200ms ease",
         }}
       >
-        <ArrowLeft size={14} /> Back to Projects
+        <ArrowLeft size={14} /> Back to Work
       </Link>
 
       <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", marginBottom: 24 }}>
@@ -56,7 +56,7 @@ export function CaseStudyHero({
         <span style={{ fontSize: 13, fontFamily: "var(--font-geist-mono)", color: "var(--text-muted)" }}>{readTime}</span>
       </div>
 
-      <h1 style={{ fontSize: "clamp(48px, 6vw, 72px)", fontWeight: 500, color: "var(--text-primary)", letterSpacing: "-0.03em", lineHeight: 1.1, margin: 0, marginBottom: 24, fontFamily: "var(--font-playfair)" }}>
+      <h1 style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 500, color: "var(--text-primary)", letterSpacing: "-0.03em", lineHeight: 1.1, margin: 0, marginBottom: 24, fontFamily: "var(--font-playfair)" }}>
         {title}
       </h1>
 

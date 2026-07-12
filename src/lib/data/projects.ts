@@ -15,6 +15,7 @@ export const projects: Project[] = [
     shortDescription: "AI-Powered Security Audit SaaS",
     status: "production",
     featured: true,
+    priority: true,
     year: 2025,
     tags: ["SaaS", "Security", "AI", "Full Stack"],
     techStack: [
@@ -30,6 +31,11 @@ export const projects: Project[] = [
       "Razorpay",
       "JWT",
       "Next.js 14",
+    ],
+    cardMetrics: [
+      "29 security modules",
+      "DPDP Act 2023 mapped",
+      "85% backend complete → production",
     ],
     metrics: [
       {
@@ -68,6 +74,50 @@ export const projects: Project[] = [
   },
 
   {
+    id: "thejakhoocrest",
+    title: "The Jakhoo Crest",
+    shortDescription: "Modern Himalayan Luxury Hotel",
+    status: "production",
+    featured: true,
+    year: 2024,
+    tags: ["Frontend", "UX/UI", "Next.js", "Tailwind CSS"],
+    techStack: [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Framer Motion",
+    ],
+    cardMetrics: [
+      "Modern luxury aesthetic",
+      "Seamless fluid animations",
+      "Optimal performance score",
+    ],
+    metrics: [
+      {
+        label: "Performance",
+        value: "Optimal",
+        detail: "Fast load times via Next.js",
+      },
+      {
+        label: "Design",
+        value: "Immersive",
+        detail: "Interactive mountain retreat experience",
+      },
+      {
+        label: "UX",
+        value: "Fluid",
+        detail: "Hardware-accelerated animations",
+      }
+    ],
+    problemStatement:
+      "Luxury hospitality websites typically suffer from severe performance bloat due to oversized media and third-party widgets. The Jakhoo Crest required a digital sanctuary that mirrored the physical property's serenity without sacrificing speed. The challenge was delivering a striking, hardware-accelerated experience that achieves optimal Core Web Vitals on low-power mobile devices.",
+    architectureSummary:
+      "Engineered a Next.js 14 static generation architecture to ensure optimal SEO and instantaneous delivery. Leveraged Framer Motion for declarative, physics-based micro-interactions that strictly respect user reduced-motion preferences. Developed custom React hooks to synchronize scroll-driven animations with route transitions, achieving near-perfect Lighthouse scores.",
+    securityHighlights: [],
+    githubUrl: "https://github.com/00049/thejakhoocrest",
+    liveUrl: "https://www.thejakhoocrest.com/",
+  },
+  {
     id: "phishsim-pro",
     title: "PhishSim Pro",
     shortDescription: "Enterprise Phishing Simulation Platform",
@@ -82,6 +132,11 @@ export const projects: Project[] = [
       "Framer Motion",
       "Node.js",
       "PostgreSQL",
+    ],
+    cardMetrics: [
+      "4+ attack vectors simulated",
+      "Real-time behavioral scoring",
+      "1 comprehensive dashboard",
     ],
     metrics: [
       {
@@ -129,6 +184,11 @@ export const projects: Project[] = [
       "Wireshark",
       "Nmap",
       "FortiGate",
+    ],
+    cardMetrics: [
+      "3 attack categories simulated",
+      "2 SIEM platforms integrated",
+      "100% custom correlation rules",
     ],
     metrics: [
       {

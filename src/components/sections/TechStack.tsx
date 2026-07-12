@@ -32,14 +32,10 @@ const techCategories = [
 export function TechStack() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
-  const [isTyping, setIsTyping] = useState(true);
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
     const fullText = techCategories[activeIndex].code;
-    
-
-    setIsTyping(true);
     setDisplayedText("");
     
     let currentIndex = 0;
@@ -49,8 +45,6 @@ export function TechStack() {
         setDisplayedText(fullText.slice(0, currentIndex + 1));
         currentIndex++;
         timeout = setTimeout(typeNextChar, Math.random() * 30 + 20);
-      } else {
-        setIsTyping(false);
       }
     };
     
@@ -100,7 +94,7 @@ export function TechStack() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="w-full rounded-2xl border border-[var(--border)] bg-[#0C0C0F] overflow-hidden shadow-2xl relative"
-          >
+           suppressHydrationWarning>
             {/* Terminal Header */}
             <div className="flex items-center px-4 py-3 border-b border-[var(--border)] bg-[#0A0A0C]">
               <div className="flex gap-2">
@@ -143,7 +137,7 @@ export function TechStack() {
                           animate={{ opacity: [1, 0] }}
                           transition={{ repeat: Infinity, duration: 0.8 }}
                           className="inline-block w-2 h-4 bg-[var(--text-primary)] ml-1 translate-y-1"
-                        />
+                         suppressHydrationWarning />
                       )}
                     </span>
                   ))}

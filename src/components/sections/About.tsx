@@ -91,7 +91,7 @@ export function About() {
               display: "flex",
               flexDirection: "column",
             }}
-          >
+           suppressHydrationWarning>
             {/* 1. Philosophy */}
             <div>
               <Label>Engineering Philosophy</Label>
@@ -231,7 +231,7 @@ export function About() {
               display: "flex",
               flexDirection: "column",
             }}
-          >
+           suppressHydrationWarning>
             {/* Identity Card */}
             <div
               style={{

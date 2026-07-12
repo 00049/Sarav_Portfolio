@@ -2,14 +2,15 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Download } from "lucide-react";
+import { Menu, X, Download, Search } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useScrolled } from "@/lib/hooks/useScrolled";
+import { useCommandPalette } from "@/components/ui/CommandPalette";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Work", href: "/projects" },
+  { label: "Work", href: "/work" },
   { label: "Skills", href: "/skills" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -59,9 +60,10 @@ function MobileMenu({ isOpen, onClose, activePath }: MobileMenuProps) {
             alignItems: "center",
             justifyContent: "center",
           }}
-        >
+         suppressHydrationWarning>
           <button
             aria-label="Close menu"
+            className="active-scale"
             onClick={onClose}
             style={{
               position: "absolute",
@@ -91,7 +93,7 @@ function MobileMenu({ isOpen, onClose, activePath }: MobileMenuProps) {
                   initial={{ opacity: 0, y: -8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2, delay: i * 0.05 }}
-                >
+                 suppressHydrationWarning>
                   <Link
                     href={link.href}
                     onClick={handleLinkClick}
@@ -115,11 +117,12 @@ function MobileMenu({ isOpen, onClose, activePath }: MobileMenuProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.2, delay: NAV_LINKS.length * 0.05 + 0.05 }}
             style={{ marginTop: 40 }}
-          >
+           suppressHydrationWarning>
             <a
               href="/resume.pdf"
               download
               onClick={handleLinkClick}
+              className="active-scale"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -147,6 +150,7 @@ export function Navbar() {
   const pathname = usePathname() || "";
   const scrolled = useScrolled();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { setOpen } = useCommandPalette();
 
   return (
     <>
@@ -223,7 +227,7 @@ export function Navbar() {
                       borderRadius: "2px",
                     }}
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                  />
+                   suppressHydrationWarning />
                 )}
               </div>
             );
@@ -231,6 +235,16 @@ export function Navbar() {
         </nav>
 
         <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 16 }}>
+          {/* Command Palette Trigger */}
+          <button
+            onClick={() => setOpen(true)}
+            className="group active-scale flex items-center justify-center gap-2 min-w-[44px] min-h-[44px] md:min-h-0 md:min-w-0 md:px-3 md:py-2 rounded-full border border-zinc-800/50 bg-zinc-900/50 text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+            aria-label="Open command palette"
+          >
+            <Search size={16} />
+            <span className="hidden md:inline-block text-xs font-medium tracking-widest uppercase">⌘K</span>
+          </button>
+
           {/* Always visible Resume button */}
           <a
             href="/resume.pdf"

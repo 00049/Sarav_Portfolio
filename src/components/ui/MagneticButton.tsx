@@ -33,7 +33,7 @@ export function MagneticButton({
       animate={{ x: position.x, y: position.y }}
       transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
       className={`inline-block ${className}`}
-    >
+     suppressHydrationWarning>
       {children}
     </motion.div>
   );

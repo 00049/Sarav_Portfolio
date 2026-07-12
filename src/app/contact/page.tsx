@@ -7,7 +7,7 @@ import { FadeInSection } from "@/components/motion/FadeInSection";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch for opportunities, collaborations, or technical discussions.",
+  description: "Get in touch for collaborations, consulting, or engineering opportunities.",
 };
 
 export default function ContactPage() {

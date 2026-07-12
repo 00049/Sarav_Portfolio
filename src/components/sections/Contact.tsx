@@ -66,7 +66,7 @@ export function Contact() {
             textTransform: "uppercase",
             letterSpacing: "0.12em",
           }}
-        >
+         suppressHydrationWarning>
           Let&apos;s Work Together
         </motion.div>
 
@@ -83,7 +83,7 @@ export function Contact() {
             lineHeight: 1.1,
             margin: 0,
           }}
-        >
+         suppressHydrationWarning>
           Get In Touch
         </motion.h2>
 
@@ -99,7 +99,7 @@ export function Contact() {
             maxWidth: 480,
             margin: "0 auto",
           }}
-        >
+         suppressHydrationWarning>
           Open to SOC analyst, cybersecurity engineering, and security-focused
           full-stack roles. Based in India, available globally.
         </motion.p>
@@ -110,7 +110,7 @@ export function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
           style={{ marginTop: 8 }}
-        >
+         suppressHydrationWarning>
           <a
             href="mailto:Sarav.pruthi@gmail.com"
             className="cta-button"
@@ -147,7 +147,7 @@ export function Contact() {
             flexWrap: "wrap",
             marginTop: 16,
           }}
-        >
+         suppressHydrationWarning>
           <a
             href="https://github.com/00049"
             target="_blank"
@@ -186,7 +186,7 @@ export function Contact() {
             color: "var(--text-muted)",
             marginTop: 24,
           }}
-        >
+         suppressHydrationWarning>
           <MapPin size={12} />
           Shimla, India · Available for remote & relocation
         </motion.div>

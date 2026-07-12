@@ -4,8 +4,7 @@ import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 import { Playfair_Display } from "next/font/google";
 import { ArrowDownRight } from "lucide-react";
-import { resumeUrl } from "@/lib/data/site";
-
+import { useMotionContext } from "@/components/motion/MotionProvider";
 // Initialize the serif font for the elegant typography
 const playfair = Playfair_Display({ 
   subsets: ["latin"],
@@ -15,24 +14,30 @@ const playfair = Playfair_Display({
 });
 
 export function Hero() {
+  const { isReducedMotion } = useMotionContext();
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
+      transition: isReducedMotion ? { duration: 0.15 } : {
+        staggerChildren: 0.05,
+        delayChildren: 0.05,
       },
     },
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 40, filter: "blur(10px)" },
+    hidden: { 
+      opacity: 0, 
+      y: isReducedMotion ? 0 : 20,
+    },
     visible: { 
       opacity: 1, 
       y: 0, 
-      filter: "blur(0px)",
-      transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } 
+      transition: isReducedMotion 
+        ? { duration: 0.15 } 
+        : { type: "spring", stiffness: 400, damping: 30 },
     },
   };
 
@@ -58,21 +63,20 @@ export function Hero() {
           initial="hidden"
           animate="visible"
           className="flex flex-col items-center w-full"
-        >
+         suppressHydrationWarning>
           {/* Top Label */}
-          <motion.div variants={itemVariants} className="mb-8 md:mb-12">
+          <motion.div variants={itemVariants} className="mb-8 md:mb-12" suppressHydrationWarning>
             <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-zinc-500 font-medium">
               Offensive Security & Systems Architecture
             </span>
           </motion.div>
 
           {/* Massive Typography Headline */}
-          <motion.div variants={itemVariants} className="w-full max-w-[1200px] mx-auto flex flex-col items-center gap-2 md:gap-4">
+          <motion.div variants={itemVariants} className="w-full max-w-[1200px] mx-auto flex flex-col items-center gap-2 md:gap-4" suppressHydrationWarning>
             
             {/* Line 1: uppercase serif */}
             <h1 
               className={`text-5xl md:text-[7rem] lg:text-[9rem] leading-[0.9] text-[#EAEAEA] font-medium tracking-tight ${playfair.className}`}
-              style={{ textShadow: "0 10px 40px rgba(0,0,0,0.5)" }}
             >
               ARCHITECTING
             </h1>
@@ -97,7 +101,7 @@ export function Hero() {
               
               <div className="flex flex-col items-center md:items-end gap-2">
                  <Link
-                    href="/projects"
+                    href="/work"
                     className="group flex items-center justify-center gap-3 w-16 h-16 rounded-full bg-white text-black hover:scale-105 transition-transform duration-500 ease-out"
                   >
                     <ArrowDownRight size={24} className="group-hover:rotate-[-45deg] transition-transform duration-500 ease-out" />
@@ -110,34 +114,6 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* ── Floating Stats Bottom Bar ───────────────────────────────── */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="relative w-full px-6 md:px-12 pb-8 flex flex-col md:flex-row justify-between items-center md:items-end gap-8 z-20"
-      >
-        <div className="flex flex-col gap-1 w-full md:w-auto text-center md:text-left">
-          <a href={resumeUrl} download className="text-xs uppercase tracking-widest text-zinc-400 hover:text-white transition-colors pb-1 border-b border-zinc-800 hover:border-zinc-400 inline-block w-max mx-auto md:mx-0">
-            Download Resume
-          </a>
-        </div>
-        
-        <div className="flex flex-wrap justify-center md:justify-end gap-8 md:gap-12 text-center md:text-right w-full md:w-auto">
-          <div className="flex flex-col">
-            <span className="text-[10px] md:text-xs tracking-widest uppercase text-zinc-600 mb-1">Status</span>
-            <span className="text-xs md:text-sm text-zinc-300 font-medium">Available for Hire</span>
-          </div>
-          <div className="flex flex-col">
-            <span className="text-[10px] md:text-xs tracking-widest uppercase text-zinc-600 mb-1">Certification</span>
-            <span className="text-xs md:text-sm text-zinc-300 font-medium">CEH Certified</span>
-          </div>
-          <div className="flex flex-col">
-            <span className="text-[10px] md:text-xs tracking-widest uppercase text-zinc-600 mb-1">Location</span>
-            <span className="text-xs md:text-sm text-zinc-300 font-medium">Remote / India</span>
-          </div>
-        </div>
-      </motion.div>
     </section>
   );
 }

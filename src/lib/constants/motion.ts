@@ -20,77 +20,83 @@ export const TRANSITION_SLOW = {
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
+// Reduced Motion Fallback
+// ─────────────────────────────────────────────────────────────────────────────
+
+export const reducedMotionVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.15, ease: "linear" },
+  },
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Directional fade variants
 // ─────────────────────────────────────────────────────────────────────────────
 
-export const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: TRANSITION_BASE,
-  },
-};
+export function getFadeInVariants(direction: "up" | "down" | "left" | "right", isReducedMotion = false): Variants {
+  if (isReducedMotion) return reducedMotionVariants;
 
-export const fadeInDown: Variants = {
-  hidden: { opacity: 0, y: -16 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: TRANSITION_BASE,
-  },
-};
+  switch (direction) {
+    case "up":
+      return {
+        hidden: { opacity: 0, y: 16 },
+        visible: { opacity: 1, y: 0, transition: TRANSITION_BASE, transitionEnd: { willChange: "auto" } },
+      };
+    case "down":
+      return {
+        hidden: { opacity: 0, y: -16 },
+        visible: { opacity: 1, y: 0, transition: TRANSITION_BASE, transitionEnd: { willChange: "auto" } },
+      };
+    case "left":
+      return {
+        hidden: { opacity: 0, x: -16 },
+        visible: { opacity: 1, x: 0, transition: TRANSITION_BASE, transitionEnd: { willChange: "auto" } },
+      };
+    case "right":
+      return {
+        hidden: { opacity: 0, x: 16 },
+        visible: { opacity: 1, x: 0, transition: TRANSITION_BASE, transitionEnd: { willChange: "auto" } },
+      };
+  }
+}
 
-export const fadeInLeft: Variants = {
-  hidden: { opacity: 0, x: -16 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: TRANSITION_BASE,
-  },
-};
-
-export const fadeInRight: Variants = {
-  hidden: { opacity: 0, x: 16 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: TRANSITION_BASE,
-  },
-};
+export const fadeInUp = getFadeInVariants("up");
+export const fadeInDown = getFadeInVariants("down");
+export const fadeInLeft = getFadeInVariants("left");
+export const fadeInRight = getFadeInVariants("right");
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Scale variant
 // ─────────────────────────────────────────────────────────────────────────────
 
-export const scaleIn: Variants = {
-  hidden: { opacity: 0, scale: 0.96 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: TRANSITION_BASE,
-  },
-};
+export function getScaleInVariants(isReducedMotion = false): Variants {
+  if (isReducedMotion) return reducedMotionVariants;
+
+  return {
+    hidden: { opacity: 0, scale: 0.96 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: TRANSITION_BASE,
+      transitionEnd: { willChange: "auto" }
+    },
+  };
+}
+
+export const scaleIn = getScaleInVariants();
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Stagger container
 // ─────────────────────────────────────────────────────────────────────────────
 
-export const staggerContainer: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0,
-    },
-  },
-};
+export function buildStaggerContainer(delayChildren = 0, isReducedMotion = false): Variants {
+  if (isReducedMotion) return {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.15, ease: "linear" } },
+  };
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Utility: build a stagger container with custom delay
-// ─────────────────────────────────────────────────────────────────────────────
-
-export function buildStaggerContainer(delayChildren = 0): Variants {
   return {
     hidden: {},
     visible: {
@@ -101,6 +107,8 @@ export function buildStaggerContainer(delayChildren = 0): Variants {
     },
   };
 }
+
+export const staggerContainer = buildStaggerContainer(0);
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Viewport trigger config — used as whileInView trigger defaults

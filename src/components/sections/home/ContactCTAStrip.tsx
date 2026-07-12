@@ -1,10 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, ArrowUpRight } from "lucide-react";
+import { Mail, ArrowUpRight, Check } from "lucide-react";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
+import { useCopyEmail } from "@/hooks/useCopyEmail";
 
 export function ContactCTAStrip() {
+  const { copied, copyEmail } = useCopyEmail();
+
   return (
     <section
       id="contact"
@@ -25,7 +28,7 @@ export function ContactCTAStrip() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-        >
+         suppressHydrationWarning>
           {/* Eyebrow */}
           <div
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-6"
@@ -66,9 +69,9 @@ export function ContactCTAStrip() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
-            <a
-              href="mailto:Sarav.pruthi@gmail.com"
-              className="flex items-center gap-2 px-8 py-4 rounded-xl font-semibold w-full sm:w-auto justify-center transition-all duration-300"
+            <button
+              onClick={copyEmail}
+              className="active-scale flex items-center gap-2 px-8 py-4 rounded-xl font-semibold w-full sm:w-auto justify-center transition-all duration-300"
               style={{
                 background: "#FFFFFF",
                 color: "#000000",
@@ -83,15 +86,15 @@ export function ContactCTAStrip() {
                 e.currentTarget.style.boxShadow = "0 4px 20px rgba(255,255,255,0.15)";
               }}
             >
-              <Mail size={18} />
-              Send me an Email
-            </a>
+              {copied ? <Check size={18} className="text-green-600" /> : <Mail size={18} />}
+              {copied ? "Email Copied!" : "Copy Email Address"}
+            </button>
 
             <a
               href="https://linkedin.com/in/saravpreetpruthi"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 px-8 py-4 rounded-xl font-medium border w-full sm:w-auto justify-center transition-all duration-300"
+              className="active-scale flex items-center gap-2 px-8 py-4 rounded-xl font-medium border w-full sm:w-auto justify-center transition-all duration-300"
               style={{
                 background: "rgba(255,255,255,0.03)",
                 borderColor: "var(--border)",
@@ -118,7 +121,7 @@ export function ContactCTAStrip() {
               href="https://linkedin.com/in/saravpreetpruthi"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 font-medium transition-colors"
+              className="active-scale flex items-center gap-2 font-medium transition-colors"
               style={{ color: "var(--text-muted)", fontSize: 14 }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text-primary)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
@@ -130,7 +133,7 @@ export function ContactCTAStrip() {
               href="https://github.com/00049"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 font-medium transition-colors"
+              className="active-scale flex items-center gap-2 font-medium transition-colors"
               style={{ color: "var(--text-muted)", fontSize: 14 }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text-primary)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
@@ -138,16 +141,16 @@ export function ContactCTAStrip() {
               <FiGithub size={18} />
               GitHub <ArrowUpRight size={13} className="opacity-50" />
             </a>
-            <a
-              href="mailto:Sarav.pruthi@gmail.com"
-              className="flex items-center gap-2 font-medium transition-colors"
+            <button
+              onClick={copyEmail}
+              className="active-scale flex items-center gap-2 font-medium transition-colors"
               style={{ color: "var(--text-muted)", fontSize: 14 }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text-primary)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
             >
-              <Mail size={18} />
-              Email
-            </a>
+              {copied ? <Check size={18} className="text-green-500" /> : <Mail size={18} />}
+              {copied ? "Copied!" : "Email"}
+            </button>
           </div>
         </motion.div>
       </div>

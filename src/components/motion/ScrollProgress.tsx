@@ -47,6 +47,6 @@ export function ScrollProgress() {
         boxShadow:
           "0 0 8px rgba(59,130,246,0.8), 0 0 20px rgba(99,102,241,0.4)",
       }}
-    />
+     suppressHydrationWarning />
   );
 }

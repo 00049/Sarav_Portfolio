@@ -25,7 +25,7 @@ export function ScrollTimeline({ children }: { children: React.ReactNode }) {
       <motion.div 
         className="absolute left-0 top-2 bottom-0 w-[2px] bg-[var(--accent-blue)] origin-top shadow-[0_0_12px_var(--glow-blue)]"
         style={{ scaleY }}
-      />
+       suppressHydrationWarning />
       
       {/* Content wrapper */}
       <div className="relative z-10 flex flex-col gap-12">

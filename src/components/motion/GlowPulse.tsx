@@ -63,6 +63,6 @@ export function GlowPulse({ className, color = "blue", style }: GlowPulseProps) 
         repeatType: "reverse",
         ease: "easeInOut",
       }}
-    />
+     suppressHydrationWarning />
   );
 }

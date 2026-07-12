@@ -25,6 +25,7 @@ export interface Project {
   problemStatement: string;
   techStack: string[];
   metrics: Metric[];
+  cardMetrics?: string[];
   securityHighlights: string[];
   architectureSummary: string;
   status: ProjectStatus;
@@ -34,6 +35,7 @@ export interface Project {
   year: number;
   coverImage?: string;
   tags: string[];
+  priority?: boolean;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -52,6 +54,29 @@ export interface TechCategory {
 
 // ─────────────────────────────────────────────────────────────────────────────
 
+export interface ArchitectureNode {
+  id: string;
+  position: { x: number; y: number };
+  data: { label: string; subLabel?: string };
+  type?: string;
+}
+
+export interface ArchitectureEdge {
+  id: string;
+  source: string;
+  target: string;
+  label?: string;
+  animated?: boolean;
+}
+
+export interface ArchitectureFlow {
+  nodes: ArchitectureNode[];
+  edges: ArchitectureEdge[];
+  fallbackText: string;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+
 export interface CaseStudy {
   projectId: string;
   title: string;
@@ -59,41 +84,13 @@ export interface CaseStudy {
   readTime: string;
   timeline: string;
   role: string;
-  overview: string;
-  problemStatement: {
-    headline: string;
-    body: string;
-  };
-  architecture: {
-    headline: string;
-    body: string;
-    keyDecisions: {
-      decision: string;
-      rationale: string;
-      tradeoff: string;
-    }[];
-  };
-  challenges: {
-    title: string;
-    body: string;
-    resolution: string;
-  }[];
-  securityConsiderations: {
-    area: string;
-    implementation: string;
-    rationale: string;
-  }[];
-  performanceOptimizations: {
-    metric: string;
-    approach: string;
-    outcome: string;
-  }[];
-  lessons: string[];
-  outcomes: {
-    label: string;
-    value: string;
-    detail: string;
-  }[];
+  executiveSummary: string;
+  coreProblem: string;
+  architecturalConstraints: string;
+  technicalImplementation: string;
+  tradeoffsAndMistakes: string;
+  finalOutcome: string;
+  architectureFlow?: ArchitectureFlow;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

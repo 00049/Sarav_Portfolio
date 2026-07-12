@@ -1,31 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useReducedMotion } from "@/lib/hooks/useReducedMotion";
-import {
-  fadeInUp,
-  fadeInDown,
-  fadeInLeft,
-  fadeInRight,
-  VIEWPORT_ONCE,
-} from "@/lib/constants/motion";
-import type { Variants } from "framer-motion";
+import { useMotionContext } from "@/components/motion/MotionProvider";
+import { getFadeInVariants, VIEWPORT_ONCE } from "@/lib/constants/motion";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // FadeIn
 //
 // Animates children into view from a given direction.
-// Skips animation entirely if the user prefers reduced motion.
+// Falls back to an opacity transition if the user prefers reduced motion.
 // ─────────────────────────────────────────────────────────────────────────────
 
 type Direction = "up" | "down" | "left" | "right";
-
-const directionVariants: Record<Direction, Variants> = {
-  up: fadeInUp,
-  down: fadeInDown,
-  left: fadeInLeft,
-  right: fadeInRight,
-};
 
 interface FadeInProps {
   children: React.ReactNode;
@@ -40,14 +26,8 @@ export function FadeIn({
   delay = 0,
   direction = "up",
 }: FadeInProps) {
-  const shouldReduceMotion = useReducedMotion();
-
-  // If reduced motion: render immediately at full opacity, no transform
-  if (shouldReduceMotion) {
-    return <div className={className}>{children}</div>;
-  }
-
-  const variants = directionVariants[direction];
+  const { isReducedMotion } = useMotionContext();
+  const variants = getFadeInVariants(direction, isReducedMotion);
 
   return (
     <motion.div
@@ -56,11 +36,16 @@ export function FadeIn({
       initial="hidden"
       whileInView="visible"
       viewport={VIEWPORT_ONCE}
-      transition={{
-        duration: 0.5,
-        ease: [0.25, 0.1, 0.25, 1],
-        delay,
-      }}
+      suppressHydrationWarning
+      transition={
+        isReducedMotion
+          ? undefined // handled by variants
+          : {
+              duration: 0.5,
+              ease: [0.25, 0.1, 0.25, 1],
+              delay,
+            }
+      }
     >
       {children}
     </motion.div>

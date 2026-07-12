@@ -20,7 +20,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
         flexDirection: "column",
         height: "100%",
         background: "var(--background-card)",
-        border: "1px solid var(--border)",
+        border: project.priority ? "1px solid rgba(16, 185, 129, 0.4)" : "1px solid var(--border)",
+        boxShadow: project.priority ? "0 8px 32px rgba(16, 185, 129, 0.08)" : "none",
         borderRadius: "var(--radius-lg)",
         overflow: "hidden",
         transition: "all 300ms cubic-bezier(0.4, 0, 0.2, 1)",
@@ -30,8 +31,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
       {/* Top accent bar */}
       <div
         style={{
-          height: 3,
-          background: isLive
+          height: project.priority ? 4 : 3,
+          background: project.priority
+            ? "linear-gradient(90deg, #10B981 0%, #06B6D4 100%)"
+            : isLive
             ? "linear-gradient(90deg, #FFFFFF 0%, #A1A1AA 100%)"
             : "linear-gradient(90deg, #3f3f46 0%, #27272a 100%)",
           flexShrink: 0,
@@ -128,7 +131,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         {/* CTA */}
         <Link
-          href={`/projects/${project.id}`}
+          href={`/work/${project.id}`}
           className="project-card-cta"
           style={{
             display: "inline-flex",

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useReducedMotion } from "@/lib/hooks/useReducedMotion";
+import { useMotionContext } from "@/components/motion/MotionProvider";
 import { buildStaggerContainer, VIEWPORT_ONCE } from "@/lib/constants/motion";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -11,7 +11,7 @@ import { buildStaggerContainer, VIEWPORT_ONCE } from "@/lib/constants/motion";
 // Children must use FadeIn, ScaleIn, or any motion component that reads
 // variant state from a parent (i.e., uses `variants` prop without `initial`).
 //
-// If reduced motion: renders children immediately with no stagger.
+// If reduced motion: fades in immediately with no stagger.
 // ─────────────────────────────────────────────────────────────────────────────
 
 interface StaggerContainerProps {
@@ -25,13 +25,8 @@ export function StaggerContainer({
   className,
   delay = 0,
 }: StaggerContainerProps) {
-  const shouldReduceMotion = useReducedMotion();
-
-  if (shouldReduceMotion) {
-    return <div className={className}>{children}</div>;
-  }
-
-  const variants = buildStaggerContainer(delay);
+  const { isReducedMotion } = useMotionContext();
+  const variants = buildStaggerContainer(delay, isReducedMotion);
 
   return (
     <motion.div
@@ -40,6 +35,7 @@ export function StaggerContainer({
       initial="hidden"
       whileInView="visible"
       viewport={VIEWPORT_ONCE}
+      suppressHydrationWarning
     >
       {children}
     </motion.div>

@@ -14,7 +14,7 @@ export function CaseStudyNav({ prev, next }: CaseStudyNavProps) {
         <div>
           {prev && (
             <Link
-              href={`/projects/${prev.id}`}
+              href={`/work/${prev.id}`}
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -38,7 +38,7 @@ export function CaseStudyNav({ prev, next }: CaseStudyNavProps) {
         <div>
           {next && (
             <Link
-              href={`/projects/${next.id}`}
+              href={`/work/${next.id}`}
               style={{
                 display: "flex",
                 flexDirection: "column",

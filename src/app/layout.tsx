@@ -33,7 +33,7 @@ const playfair = Playfair_Display({
 // Viewport
 // ─────────────────────────────────────────────────────────────────────────────
 export const viewport: Viewport = {
-  themeColor: "#0A0A0F",
+  themeColor: "#06141B",
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
@@ -119,7 +119,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable}`}
-      style={{ backgroundColor: "#060608" }}
+      style={{ backgroundColor: "#06141B" }}
       suppressHydrationWarning
     >
       <head>
@@ -130,7 +130,11 @@ export default function RootLayout({
         <MotionProvider>
           <a 
             href="#main-content"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[var(--accent-gold)] focus:text-[#0A0A0F] focus:rounded focus:font-medium focus:text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#0A0A0F]"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:rounded focus:font-medium focus:text-sm focus:outline-none"
+            style={{
+              background: "var(--accent-strong)",
+              color: "var(--background)",
+            }}
           >
             Skip to main content
           </a>

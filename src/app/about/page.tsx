@@ -34,9 +34,9 @@ export default function AboutPage() {
             <FadeInSection delay={0.2} direction="right">
               <div style={{ position: "sticky", top: 100, borderRadius: "var(--radius-lg)", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "0 24px 64px rgba(0,0,0,0.4)" }}>
                 {/* Premium dark identity card */}
-                <div style={{ position: "relative", padding: "48px 32px 32px", display: "flex", flexDirection: "column", alignItems: "center", background: "linear-gradient(135deg, #13131A 0%, #13131A 60%, #0A0A0F 100%)", borderBottom: "1px solid var(--border)" }}>
+                <div style={{ position: "relative", padding: "48px 32px 32px", display: "flex", flexDirection: "column", alignItems: "center", background: "linear-gradient(135deg, #11212D 0%, #11212D 60%, #06141B 100%)", borderBottom: "1px solid var(--border)" }}>
                   {/* Dot grid */}
-                  <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(45,107,228,0.12) 1px, transparent 1px)", backgroundSize: "24px 24px", pointerEvents: "none" }} />
+                  <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(74,92,106,0.12) 1px, transparent 1px)", backgroundSize: "24px 24px", pointerEvents: "none" }} />
                   {/* Corner accents */}
                   <div style={{ position: "absolute", top: 12, left: 12, width: 20, height: 20, borderTop: "1px solid var(--border-hover)", borderLeft: "1px solid var(--border-hover)" }} />
                   <div style={{ position: "absolute", top: 12, right: 12, width: 20, height: 20, borderTop: "1px solid var(--border-hover)", borderRight: "1px solid var(--border-hover)" }} />
@@ -46,8 +46,8 @@ export default function AboutPage() {
                   </div>
                   <h2 style={{ position: "relative", zIndex: 1, fontSize: 18, fontWeight: 700, color: "var(--text-primary)", margin: 0, marginBottom: 6, fontFamily: "var(--font-geist-sans)", textAlign: "center" }}>Saravpreet Singh Pruthi</h2>
                   <p style={{ position: "relative", zIndex: 1, fontSize: 11, color: "var(--accent-gold)", fontFamily: "var(--font-geist-mono)", margin: 0, marginBottom: 16, letterSpacing: "0.08em", textTransform: "uppercase" }}>Security / Full-Stack Engineer</p>
-                  <div style={{ position: "relative", zIndex: 1, display: "inline-flex", alignItems: "center", gap: 6, padding: "6px 12px", borderRadius: 999, background: "rgba(0,200,150,0.08)", border: "1px solid rgba(0,200,150,0.25)", fontSize: 11, fontFamily: "var(--font-geist-mono)", color: "var(--accent-green)" }}>
-                    <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--accent-green)", boxShadow: "0 0 6px var(--accent-green)" }} />
+                  <div style={{ position: "relative", zIndex: 1, display: "inline-flex", alignItems: "center", gap: 6, padding: "6px 12px", borderRadius: 999, background: "rgba(74, 92, 106, 0.12)", border: "1px solid var(--border)", fontSize: 11, fontFamily: "var(--font-geist-mono)", color: "var(--text-secondary)" }}>
+                    <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--accent)" }} />
                     Available for hire
                   </div>
                 </div>

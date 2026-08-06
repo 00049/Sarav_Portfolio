@@ -30,7 +30,7 @@ export function SectionHeader({
         style={{
           fontSize: 12,
           fontFamily: "var(--font-geist-mono)",
-          color: "var(--accent-blue)",
+          color: "var(--text-muted)",
           letterSpacing: "0.1em",
           textTransform: "uppercase",
           margin: 0,
@@ -62,7 +62,7 @@ export function SectionHeader({
         <p
           style={{
             fontSize: 15,
-            color: "var(--text-muted)",
+            color: "var(--text-secondary)",
             margin: 0,
             lineHeight: 1.6,
           }}

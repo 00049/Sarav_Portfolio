@@ -225,6 +225,85 @@ export const projects: Project[] = [
     githubUrl: "[GITHUB_URL_TO_BE_PROVIDED]",
     liveUrl: undefined,
   },
+  {
+    id: "cafe-1873",
+    title: "Cafe 1873",
+    shortDescription: "Heritage Hill-Café on Shimla's Mall Road",
+    status: "production",
+    featured: true,
+    year: 2025,
+    tags: ["Frontend", "Heritage", "Vanilla Web"],
+    techStack: [
+      "HTML5",
+      "CSS3",
+      "Vanilla JavaScript",
+      "Responsive Design",
+    ],
+    cardMetrics: [
+      "150+ years of legacy",
+      "Hardware-accelerated animations",
+      "Semantic HTML structure",
+    ],
+    metrics: [
+      {
+        label: "Performance",
+        value: "Optimized",
+        detail: "Vanilla web technologies with no framework bloat",
+      },
+      {
+        label: "Design",
+        value: "Timeless",
+        detail: "Classic typography matching the cafe's heritage",
+      },
+    ],
+    problemStatement:
+      "A heritage brand like Cafe 1873 (established 1795 as a trading house, 1873 as a flagship on Shimla's Mall Road) needs a digital presence that reflects its legacy. The challenge was building an immersive story-driven experience without the overhead of heavy JavaScript frameworks, prioritizing smooth scroll animations and timeless typography.",
+    architectureSummary:
+      "Developed a custom static architecture utilizing pure HTML, CSS, and Vanilla JavaScript. Implemented Intersection Observers for high-performance scroll animations and dynamic timeline progression. Structured CSS with token-based methodology (tokens.css, layout.css, typography.css) for maintainability and precise design control.",
+    securityHighlights: [],
+    githubUrl: undefined,
+    liveUrl: "https://cafe-1873.vercel.app/",
+  },
+  {
+    id: "portfolio-website",
+    title: "Saravpreet.dev Portfolio",
+    shortDescription: "Interactive Security Engineer Portfolio",
+    status: "production",
+    featured: true,
+    year: 2025,
+    tags: ["Frontend", "UX/UI", "Next.js"],
+    techStack: [
+      "Next.js 14",
+      "React",
+      "Tailwind CSS",
+      "Framer Motion",
+      "TypeScript",
+    ],
+    cardMetrics: [
+      "Dynamic Framer animations",
+      "Responsive UI",
+      "Performant static generation",
+    ],
+    metrics: [
+      {
+        label: "Performance",
+        value: "Optimal",
+        detail: "Next.js App Router static rendering",
+      },
+      {
+        label: "UX",
+        value: "Interactive",
+        detail: "Framer Motion orchestrated transitions",
+      },
+    ],
+    problemStatement:
+      "A security engineer's portfolio must balance technical depth with an engaging, professional aesthetic. Standard templates fail to convey architectural thinking and fail to leave a lasting impression. The goal was to build a highly interactive digital resume that loads instantly and stands out.",
+    architectureSummary:
+      "Built with Next.js 14 App Router for optimized static generation. Designed a component-driven UI utilizing Tailwind CSS for styling and Framer Motion for sophisticated, coordinated animations (FadeIn, StaggerContainer). Structured data models (like projects and case studies) decouple content from presentation.",
+    securityHighlights: [],
+    githubUrl: "https://github.com/00049/Sarav_Portfolio",
+    liveUrl: "https://saravpreet.dev",
+  },
 ];
 
 export const featuredProjects = projects.filter((p) => p.featured);

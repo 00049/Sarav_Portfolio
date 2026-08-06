@@ -98,7 +98,7 @@ export function About() {
               <Label>Engineering Philosophy</Label>
               <div
                 style={{
-                  borderLeft: "2px solid rgba(242,217,160,0.2)",
+                  borderLeft: "2px solid rgba(155, 168, 171, 0.25)",
                   paddingLeft: 20,
                   marginTop: 10,
                 }}
@@ -124,12 +124,12 @@ export function About() {
                   <div key={idx} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
                     <div
                       style={{
-                        fontFamily: "var(--font-geist-mono)",
-                        fontSize: 13,
-                        color: "var(--accent-gold)",
-                        marginTop: 1,
-                        flexShrink: 0,
-                      }}
+                      fontFamily: "var(--font-geist-mono)",
+                      fontSize: 13,
+                      color: "var(--text-secondary)",
+                      marginTop: 1,
+                      flexShrink: 0,
+                    }}
                     >
                       →
                     </div>
@@ -173,10 +173,10 @@ export function About() {
                     >
                       <div
                         style={{
-                          fontSize: 13,
-                          fontFamily: "var(--font-geist-mono)",
-                          color: "var(--accent-gold)",
-                        }}
+                        fontSize: 13,
+                        fontFamily: "var(--font-geist-mono)",
+                        color: "var(--text-secondary)",
+                      }}
                       >
                         {exp.company}
                       </div>
@@ -196,13 +196,13 @@ export function About() {
                         <div key={hIdx} style={{ display: "flex", alignItems: "flex-start", gap: 8 }}>
                           <div
                             style={{
-                              width: 4,
-                              height: 4,
-                              borderRadius: "50%",
-                              background: "var(--accent-gold)",
-                              marginTop: 6,
-                              flexShrink: 0,
-                            }}
+                            width: 4,
+                            height: 4,
+                            borderRadius: "50%",
+                            background: "var(--text-secondary)",
+                            marginTop: 6,
+                            flexShrink: 0,
+                          }}
                           />
                           <div
                             style={{
@@ -392,7 +392,7 @@ export function About() {
                       gap: 4,
                       fontSize: 11,
                       fontFamily: "var(--font-geist-mono)",
-                      color: "#75162D",
+                      color: "var(--text-secondary)",
                     }}
                   >
                     <svg
@@ -431,13 +431,13 @@ export function About() {
               >
                 <div
                   style={{
-                    width: 8,
-                    height: 8,
-                    borderRadius: "50%",
-                    background: "var(--accent-gold)",
-                    flexShrink: 0,
-                    animation: "pulseDot 3s infinite",
-                  }}
+                  width: 8,
+                  height: 8,
+                  borderRadius: "50%",
+                  background: "var(--accent)",
+                  flexShrink: 0,
+                  animation: "pulseDot 3s infinite",
+                }}
                 />
                 <div
                   style={{
@@ -502,9 +502,9 @@ export function About() {
         }
         
         @keyframes pulseDot {
-          0% { box-shadow: 0 0 0 0 rgba(242, 217, 160, 0.4); }
-          70% { box-shadow: 0 0 0 6px rgba(242, 217, 160, 0); }
-          100% { box-shadow: 0 0 0 0 rgba(242, 217, 160, 0); }
+          0% { box-shadow: 0 0 0 0 rgba(155, 168, 171, 0.4); }
+          70% { box-shadow: 0 0 0 6px rgba(155, 168, 171, 0); }
+          100% { box-shadow: 0 0 0 0 rgba(155, 168, 171, 0); }
         }
 
         .quick-link {
@@ -523,7 +523,7 @@ export function About() {
           transition: color 200ms ease;
         }
         .quick-link:hover, .quick-link:hover svg {
-          color: var(--accent-gold);
+          color: var(--text-primary);
         }
       `}</style>
     </section>

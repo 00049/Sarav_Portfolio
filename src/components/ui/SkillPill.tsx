@@ -29,7 +29,7 @@ export function SkillPill({ name, proficiency = "core", icon, size = "md" }: Ski
       }}
     >
       {IconComponent && (
-        <IconComponent size={isSm ? 12 : 14} style={{ color: "var(--accent-gold)" }} />
+        <IconComponent size={isSm ? 12 : 14} style={{ color: "var(--accent)" }} />
       )}
       <span
         style={{

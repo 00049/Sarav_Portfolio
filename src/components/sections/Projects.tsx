@@ -18,7 +18,7 @@ export function Projects() {
         <SectionHeader
           eyebrow="Selected Work"
           heading="Projects That Ship"
-          subheading="Two production-grade systems. No tutorial clones."
+          subheading="Production-grade systems. No tutorial clones."
         />
       </FadeIn>
 

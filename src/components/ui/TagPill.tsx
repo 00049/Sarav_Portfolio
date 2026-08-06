@@ -31,9 +31,9 @@ export function TagPill({ label, variant = "default", active = false, onClick }:
       background: active ? "var(--background-card)" : "transparent",
     },
     accent: {
-      color: "var(--accent-gold)",
-      borderColor: "rgba(117,22,45,0.3)",
-      background: "rgba(117,22,45,0.06)",
+      color: "var(--text-secondary)",
+      borderColor: "var(--border-hover)",
+      background: "rgba(74, 92, 106, 0.12)",
     },
     muted: {
       color: "var(--text-muted)",

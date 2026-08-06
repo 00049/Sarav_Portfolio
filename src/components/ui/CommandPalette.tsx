@@ -92,7 +92,11 @@ function CommandPalette() {
                 animate="visible"
                 exit="hidden"
                 variants={contentVariants}
-                className="fixed top-[50%] left-[50%] z-[9999] w-[90vw] max-w-[600px] translate-x-[-50%] translate-y-[-50%] overflow-hidden rounded-xl border border-zinc-800 bg-[#0A0A0F] shadow-2xl"
+                className="fixed top-[50%] left-[50%] z-[9999] w-[90vw] max-w-[600px] translate-x-[-50%] translate-y-[-50%] overflow-hidden rounded-xl shadow-2xl"
+                style={{
+                  border: "1px solid var(--border)",
+                  background: "var(--background-secondary)",
+                }}
                suppressHydrationWarning>
                 <Command 
                   className="w-full text-zinc-300"
@@ -103,8 +107,13 @@ function CommandPalette() {
                     <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
                     <Command.Input 
                       placeholder="Type a command or search..." 
-                      className="flex h-12 w-full rounded-md bg-transparent py-3 text-sm !outline-none !ring-0 placeholder:text-zinc-500 disabled:cursor-not-allowed disabled:opacity-50 text-white" 
-                      style={{ outline: "none", boxShadow: "none", border: "none" }}
+                      className="flex h-12 w-full rounded-md bg-transparent py-3 text-sm !outline-none !ring-0 disabled:cursor-not-allowed disabled:opacity-50" 
+                      style={{ 
+                        outline: "none", 
+                        boxShadow: "none", 
+                        border: "none",
+                        color: "var(--text-primary)",
+                      }}
                     />
                   </div>
                   

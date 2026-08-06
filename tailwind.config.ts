@@ -20,21 +20,20 @@ const config: Config = {
         background: "var(--background)",
         "background-secondary": "var(--background-secondary)",
         "background-card": "var(--background-card)",
-        "background-card-hover": "var(--background-card-hover)",
+        "background-elevated": "var(--background-elevated)",
         border: "var(--border)",
         "border-hover": "var(--border-hover)",
-        "border-accent": "var(--border-accent)",
         "text-primary": "var(--text-primary)",
         "text-secondary": "var(--text-secondary)",
         "text-muted": "var(--text-muted)",
-        "accent-blue": "var(--accent-blue)",
-        "accent-indigo": "var(--accent-indigo)",
-        "accent-cyan": "var(--accent-cyan)",
-        "accent-violet": "var(--accent-violet)",
-        "accent-emerald": "var(--accent-emerald)",
-        "glow-blue": "var(--glow-blue)",
-        "glow-indigo": "var(--glow-indigo)",
-        "glow-cyan": "var(--glow-cyan)",
+        accent: "var(--accent)",
+        "accent-strong": "var(--accent-strong)",
+        "accent-subtle": "var(--accent-subtle)",
+        // Legacy aliases for backward compat
+        "accent-gold": "var(--accent)",
+        "accent-blue": "var(--accent)",
+        "accent-cyan": "var(--accent)",
+        "accent-green": "var(--text-muted)",
       },
       fontFamily: {
         sans: ["var(--font-geist-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
@@ -45,14 +44,10 @@ const config: Config = {
         md: "var(--radius-md)",
         lg: "var(--radius-lg)",
         xl: "var(--radius-xl)",
-        "2xl": "var(--radius-2xl)",
-        full: "var(--radius-full)",
       },
       boxShadow: {
         card: "var(--shadow-card)",
-        glow: "var(--shadow-glow)",
-        "glow-strong": "var(--shadow-glow-strong)",
-        inset: "var(--shadow-inset)",
+        lifted: "var(--shadow-lifted)",
       },
       transitionTimingFunction: {
         "in-expo": "cubic-bezier(0.95, 0.05, 0.795, 0.035)",
@@ -62,8 +57,6 @@ const config: Config = {
       animation: {
         "fade-in": "fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) both",
         "slide-up": "slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) both",
-        "glow-pulse": "glowPulse 3s ease-in-out infinite",
-        "border-spin": "borderSpin 8s linear infinite",
       },
       keyframes: {
         fadeIn: {
@@ -73,15 +66,6 @@ const config: Config = {
         slideUp: {
           "0%": { opacity: "0", transform: "translateY(24px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-        glowPulse: {
-          "0%, 100%": { opacity: "0.4" },
-          "50%": { opacity: "1" },
-        },
-        borderSpin: {
-          "0%": { backgroundPosition: "0% 50%" },
-          "50%": { backgroundPosition: "100% 50%" },
-          "100%": { backgroundPosition: "0% 50%" },
         },
       },
     },

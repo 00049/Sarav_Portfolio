@@ -66,8 +66,11 @@ export default function Footer() {
               }}
             >
               <span
-                className="w-1.5 h-1.5 rounded-full bg-white"
-                style={{ boxShadow: "0 0 6px rgba(255,255,255,0.5)" }}
+                className="w-1.5 h-1.5 rounded-full"
+                style={{ 
+                  background: "var(--accent)",
+                  boxShadow: "0 0 6px rgba(155,168,171,0.5)" 
+                }}
               />
               Available for hire
             </div>

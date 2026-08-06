@@ -7,37 +7,49 @@
 }
 
 :root {
-  /* Backgrounds */
-  --background: #060608;
-  --background-secondary: #0A0A0C;
-  --background-card: #0E0E10;
-  --background-elevated: #18181B;
+  /* ── Palette — Deep Blue Slate ───────────────────────────────────────────── */
+  --palette-900: #06141B; /* Darkest — page background                        */
+  --palette-800: #11212D; /* Deep — section alt backgrounds                   */
+  --palette-700: #253745; /* Dark — cards, elevated surfaces                  */
+  --palette-600: #4A5C6A; /* Mid — borders, decorative, muted text            */
+  --palette-400: #9BA8AB; /* Light — secondary text, accent emphasis          */
+  --palette-200: #CCD0CF; /* Lightest — primary typography, high-contrast CTA */
 
-  /* Borders */
-  --border: rgba(255, 255, 255, 0.08);
-  --border-hover: rgba(255, 255, 255, 0.15);
+  /* ── Semantic Backgrounds ────────────────────────────────────────────────── */
+  --background:           #06141B;
+  --background-secondary: #11212D;
+  --background-card:      #253745;
+  --background-elevated:  #4A5C6A;
 
-  /* Typography */
-  --text-primary: #FFFFFF;
-  --text-secondary: #A1A1AA;
-  --text-muted: #8C8C94;
+  /* ── Borders ─────────────────────────────────────────────────────────────── */
+  --border:               rgba(74, 92, 106, 0.45);
+  --border-hover:         rgba(155, 168, 171, 0.55);
 
-  /* Accents - Elegant Monochrome */
-  --accent-gold: #EAEAEA; 
-  --accent-blue: #D4D4D8; 
-  --accent-cyan: #A1A1AA; 
-  --accent-green: #71717A; 
+  /* ── Typography ──────────────────────────────────────────────────────────── */
+  --text-primary:         #CCD0CF;
+  --text-secondary:       #9BA8AB;
+  --text-muted:           #4A5C6A;
 
-  /* Glows - Muted / Minimal */
-  --glow-gold: rgba(255, 255, 255, 0.05);
-  --glow-blue: rgba(255, 255, 255, 0.03);
-  --glow-cyan: rgba(255, 255, 255, 0.02);
+  /* ── Accents (monochromatic — no warm or neon colors) ────────────────────── */
+  --accent:               #9BA8AB;   /* emphasis, active states               */
+  --accent-strong:        #CCD0CF;   /* high-contrast highlights, CTAs        */
+  --accent-subtle:        #253745;   /* background tint for active elements   */
 
-  /* Radius */
+  /* Legacy aliases — kept for backward compat with any remaining references */
+  --accent-gold:          #9BA8AB;
+  --accent-blue:          #9BA8AB;
+  --accent-cyan:          #9BA8AB;
+  --accent-green:         #4A5C6A;
+
+  /* ── Shadows ─────────────────────────────────────────────────────────────── */
+  --shadow-card:   0 1px 3px rgba(6, 20, 27, 0.5), 0 4px 16px rgba(6, 20, 27, 0.3);
+  --shadow-lifted: 0 8px 32px rgba(6, 20, 27, 0.6), 0 2px 8px rgba(6, 20, 27, 0.4);
+
+  /* ── Radius ──────────────────────────────────────────────────────────────── */
   --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
 }
 
 body {
@@ -52,14 +64,14 @@ body {
 
 /* ── Blueprint Aesthetic Grid ────────────────────────────────────────────── */
 .bg-blueprint-grid {
-  background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-image: linear-gradient(to right, rgba(74,92,106,0.06) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(74,92,106,0.06) 1px, transparent 1px);
   background-size: 32px 32px;
   background-position: center top;
 }
 
 .bg-blueprint-radial {
-  background-image: radial-gradient(circle at center, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-image: radial-gradient(circle at center, rgba(74,92,106,0.08) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -89,19 +101,19 @@ body {
 
 /* ── Selection colour ────────────────────────────────────────────────────── */
 ::selection {
-  background: rgba(255, 255, 255, 0.2);
-  color: #FFFFFF;
+  background: rgba(155, 168, 171, 0.25);
+  color: #CCD0CF;
 }
 
 /* ── Custom scrollbar ────────────────────────────────────────────────────── */
-::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: var(--background); }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
-::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+::-webkit-scrollbar-thumb { background: rgba(74, 92, 106, 0.5); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(155, 168, 171, 0.6); }
 
 /* ── Base focus styles ───────────────────────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid var(--accent-gold);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
   border-radius: 2px;
 }
@@ -177,9 +189,9 @@ html.lenis body {
 /* ── Global keyframes ────────────────────────────────────────────────────── */
 @keyframes float-firefly {
   0% { transform: translate(0, 0) scale(0.5); opacity: 0; }
-  25% { opacity: 0.8; }
-  50% { transform: translate(20px, -20px) scale(1.2); opacity: 1; }
-  75% { opacity: 0.6; }
+  25% { opacity: 0.6; }
+  50% { transform: translate(20px, -20px) scale(1.2); opacity: 0.8; }
+  75% { opacity: 0.4; }
   100% { transform: translate(-20px, -40px) scale(0.5); opacity: 0; }
 }
 

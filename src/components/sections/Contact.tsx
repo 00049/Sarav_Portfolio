@@ -21,12 +21,11 @@ export function Contact() {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: 500,
-          height: 500,
-          background: "radial-gradient(circle, #75162D 0%, transparent 70%)",
-          opacity: 0.3,
+          width: 400,
+          height: 400,
+          background: "radial-gradient(circle, rgba(37,55,69,0.5) 0%, transparent 70%)",
+          opacity: 0.6,
           pointerEvents: "none",
-          animation: "pulseSlow 4s infinite alternate",
           zIndex: -1,
         }}
       />
@@ -62,7 +61,7 @@ export function Contact() {
           style={{
             fontSize: 11,
             fontFamily: "var(--font-geist-mono)",
-            color: "var(--accent-gold)",
+            color: "var(--text-secondary)",
             textTransform: "uppercase",
             letterSpacing: "0.12em",
           }}
@@ -115,8 +114,8 @@ export function Contact() {
             href="mailto:Sarav.pruthi@gmail.com"
             className="cta-button"
             style={{
-              background: "var(--accent-gold)",
-              color: "#3B010B",
+              background: "#CCD0CF",
+              color: "#06141B",
               fontFamily: "var(--font-geist-mono)",
               fontSize: 15,
               fontWeight: 500,
@@ -194,19 +193,18 @@ export function Contact() {
 
       <style>{`
         @keyframes pulseSlow {
-          0% { transform: translate(-50%, -50%) scale(1); opacity: 0.2; }
-          100% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.35; }
+          0% { transform: translate(-50%, -50%) scale(1); }
+          100% { transform: translate(-50%, -50%) scale(1.1); }
         }
         
         .cta-button:hover {
-          background: #F2E5C6 !important;
-          box-shadow: 0 0 32px rgba(242, 217, 160, 0.4);
+          background: #9BA8AB !important;
           transform: translateY(-2px);
         }
 
         .secondary-link {
           display: flex;
-          alignItems: center;
+          align-items: center;
           gap: 6px;
           border: 1px solid var(--border);
           background: transparent;
@@ -221,7 +219,7 @@ export function Contact() {
         .secondary-link:hover {
           border-color: var(--border-hover);
           color: var(--text-primary);
-          background: rgba(242, 229, 198, 0.04);
+          background: rgba(74, 92, 106, 0.1);
         }
       `}</style>
     </section>

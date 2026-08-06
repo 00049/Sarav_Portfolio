@@ -72,11 +72,17 @@ export function TechStack() {
                 onClick={() => setActiveIndex(idx)}
                 className={`flex items-center gap-4 p-4 rounded-xl border text-left transition-all duration-300 ${
                   activeIndex === idx 
-                    ? "bg-[rgba(255,255,255,0.06)] border-[var(--border-hover)]" 
-                    : "bg-transparent border-[var(--border)] hover:bg-[rgba(255,255,255,0.02)]"
+                    ? "border-[var(--border-hover)]" 
+                    : "border-[var(--border)] hover:border-[var(--border-hover)]"
                 }`}
+                style={{
+                  background: activeIndex === idx ? "rgba(74, 92, 106, 0.12)" : "transparent",
+                }}
               >
-                <div className={`p-2 rounded-lg ${activeIndex === idx ? "bg-[var(--background-card)]" : "bg-transparent"}`}>
+                <div className={`p-2 rounded-lg transition-colors`}
+                  style={{
+                    background: activeIndex === idx ? "var(--background-card)" : "transparent",
+                  }}>
                   {cat.icon}
                 </div>
                 <div>
@@ -93,10 +99,15 @@ export function TechStack() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="w-full rounded-2xl border border-[var(--border)] bg-[#0C0C0F] overflow-hidden shadow-2xl relative"
+            className="w-full rounded-2xl overflow-hidden shadow-xl relative"
+            style={{
+              border: "1px solid var(--border)",
+              background: "#11212D",
+            }}
            suppressHydrationWarning>
             {/* Terminal Header */}
-            <div className="flex items-center px-4 py-3 border-b border-[var(--border)] bg-[#0A0A0C]">
+            <div className="flex items-center px-4 py-3 border-b border-[var(--border)]"
+              style={{ background: "#06141B" }}>
               <div className="flex gap-2">
                 <div className="w-3 h-3 rounded-full bg-red-500/80" />
                 <div className="w-3 h-3 rounded-full bg-yellow-500/80" />

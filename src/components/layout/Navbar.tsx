@@ -52,7 +52,7 @@ function MobileMenu({ isOpen, onClose, activePath }: MobileMenuProps) {
             position: "fixed",
             inset: 0,
             zIndex: 999,
-            backgroundColor: "rgba(10, 10, 15, 0.95)",
+            backgroundColor: "rgba(17, 33, 45, 0.97)",
             backdropFilter: "blur(20px)",
             WebkitBackdropFilter: "blur(20px)",
             display: "flex",
@@ -130,8 +130,8 @@ function MobileMenu({ isOpen, onClose, activePath }: MobileMenuProps) {
                 padding: "14px 28px",
                 fontSize: 15,
                 fontWeight: 500,
-                color: "#000",
-                background: "var(--accent-gold)",
+                color: "#06141B",
+                background: "#CCD0CF",
                 borderRadius: "999px",
                 fontFamily: "var(--font-geist-sans)",
                 textDecoration: "none",
@@ -165,12 +165,12 @@ export function Navbar() {
           display: "flex",
           alignItems: "center",
           paddingInline: "clamp(24px, 5vw, 48px)",
-          backgroundColor: scrolled ? "rgba(10, 10, 15, 0.9)" : "transparent",
-          backdropFilter: scrolled ? "blur(16px) saturate(180%)" : "none",
-          WebkitBackdropFilter: scrolled ? "blur(16px) saturate(180%)" : "none",
+          backgroundColor: scrolled ? "rgba(6, 20, 27, 0.92)" : "transparent",
+          backdropFilter: scrolled ? "blur(16px) saturate(160%)" : "none",
+          WebkitBackdropFilter: scrolled ? "blur(16px) saturate(160%)" : "none",
           borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
           transition: "all 400ms cubic-bezier(0.4, 0, 0.2, 1)",
-          boxShadow: scrolled ? "0 1px 32px rgba(0,0,0,0.3)" : "none",
+          boxShadow: scrolled ? "0 1px 24px rgba(6,20,27,0.6)" : "none",
         }}
       >
         <div style={{ flex: 1 }}>
@@ -223,7 +223,7 @@ export function Navbar() {
                       left: 16,
                       right: 16,
                       height: 2,
-                      background: "var(--accent-gold)",
+                      background: "var(--accent)",
                       borderRadius: "2px",
                     }}
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
@@ -238,7 +238,20 @@ export function Navbar() {
           {/* Command Palette Trigger */}
           <button
             onClick={() => setOpen(true)}
-            className="group active-scale flex items-center justify-center gap-2 min-w-[44px] min-h-[44px] md:min-h-0 md:min-w-0 md:px-3 md:py-2 rounded-full border border-zinc-800/50 bg-zinc-900/50 text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+            className="group active-scale flex items-center justify-center gap-2 min-w-[44px] min-h-[44px] md:min-h-0 md:min-w-0 md:px-3 md:py-2 rounded-full border text-sm transition-all duration-200"
+          style={{
+            borderColor: "var(--border)",
+            background: "var(--background-card)",
+            color: "var(--text-muted)",
+          }}
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLButtonElement).style.borderColor = "var(--border-hover)";
+            (e.currentTarget as HTMLButtonElement).style.color = "var(--text-primary)";
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLButtonElement).style.borderColor = "var(--border)";
+            (e.currentTarget as HTMLButtonElement).style.color = "var(--text-muted)";
+          }}
             aria-label="Open command palette"
           >
             <Search size={16} />
@@ -268,12 +281,14 @@ export function Navbar() {
               transition: "all 300ms ease",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.background = "var(--text-primary)";
-              (e.currentTarget as HTMLAnchorElement).style.color = "#000";
+              (e.currentTarget as HTMLAnchorElement).style.background = "#CCD0CF";
+              (e.currentTarget as HTMLAnchorElement).style.color = "#06141B";
+              (e.currentTarget as HTMLAnchorElement).style.borderColor = "#CCD0CF";
             }}
             onMouseLeave={(e) => {
               (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
               (e.currentTarget as HTMLAnchorElement).style.color = "var(--text-primary)";
+              (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--border)";
             }}
           >
             <Download size={14} className="group-hover:translate-y-[1px] transition-transform" />

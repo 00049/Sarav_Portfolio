@@ -6,13 +6,13 @@ interface StatusBadgeProps {
 }
 
 const STATUS_MAP: Record<string, { label: string; color: string; dot: string; glow: boolean }> = {
-  live:        { label: "LIVE PRODUCT", color: "#00FF94", dot: "#00FF94", glow: true },
-  production:  { label: "LIVE PRODUCT", color: "#00FF94", dot: "#00FF94", glow: true },
-  lab:         { label: "Personal Lab", color: "var(--text-secondary)", dot: "var(--text-muted)", glow: false },
-  complete:    { label: "Complete",    color: "var(--text-primary)", dot: "var(--text-muted)", glow: false },
-  "in-progress": { label: "In Progress", color: "#F5A623", dot: "#F5A623", glow: true },
-  archived:    { label: "Archived",   color: "var(--text-muted)", dot: "var(--border)", glow: false },
-  private:     { label: "Private",    color: "var(--text-muted)", dot: "var(--border)", glow: false },
+  live:          { label: "LIVE PRODUCT",  color: "#CCD0CF",              dot: "#CCD0CF",              glow: false },
+  production:    { label: "LIVE PRODUCT",  color: "#CCD0CF",              dot: "#CCD0CF",              glow: false },
+  lab:           { label: "Personal Lab",  color: "var(--text-secondary)", dot: "var(--text-muted)",  glow: false },
+  complete:      { label: "Complete",      color: "var(--text-primary)",   dot: "var(--text-secondary)", glow: false },
+  "in-progress": { label: "In Progress",  color: "#9BA8AB",              dot: "#9BA8AB",              glow: false },
+  archived:      { label: "Archived",      color: "var(--text-muted)",    dot: "var(--border)",        glow: false },
+  private:       { label: "Private",       color: "var(--text-muted)",    dot: "var(--border)",        glow: false },
 };
 
 export function StatusBadge({ status, size = "sm" }: StatusBadgeProps) {
@@ -31,7 +31,7 @@ export function StatusBadge({ status, size = "sm" }: StatusBadgeProps) {
         fontSize,
         fontFamily: "var(--font-geist-mono)",
         color: cfg.color,
-        background: "rgba(255,255,255,0.03)",
+        background: "rgba(74, 92, 106, 0.12)",
         border: "1px solid var(--border)",
         borderRadius: 999,
         padding,

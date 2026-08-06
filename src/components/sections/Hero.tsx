@@ -46,13 +46,13 @@ export function Hero() {
     <section
       id="hero"
       className="relative flex flex-col items-center justify-center min-h-screen pt-20 px-6 overflow-hidden"
-      style={{ backgroundColor: "#060608" }}
+      style={{ backgroundColor: "#06141B" }}
     >
       {/* ── Ultra-minimal subtle glow ───────────────────────────────── */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[500px] pointer-events-none z-0"
         style={{
-          background: "radial-gradient(ellipse at top, rgba(255,255,255,0.04) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse at top, rgba(37,55,69,0.5) 0%, transparent 65%)",
         }}
       />
 
@@ -67,7 +67,9 @@ export function Hero() {
          suppressHydrationWarning>
           {/* Top Label */}
           <motion.div variants={itemVariants} className="mb-8 md:mb-12 flex flex-col items-center gap-5" suppressHydrationWarning>
-            <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border border-zinc-800 shadow-2xl">
+            <div 
+              className="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden shadow-2xl"
+              style={{ border: "1px solid rgba(74, 92, 106, 0.6)" }}>
               <Image 
                 src="/profile.jpg" 
                 alt="Saravpreet Singh Pruthi" 
@@ -77,8 +79,9 @@ export function Hero() {
                 style={{ objectPosition: "center top" }} 
               />
             </div>
-            <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-zinc-500 font-medium">
-              Offensive Security & Systems Architecture
+            <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase font-medium"
+              style={{ color: "#4A5C6A" }}>
+              Offensive Security &amp; Systems Architecture
             </span>
           </motion.div>
 
@@ -87,7 +90,8 @@ export function Hero() {
             
             {/* Line 1: uppercase serif */}
             <h1 
-              className={`text-5xl md:text-[7rem] lg:text-[9rem] leading-[0.9] text-[#EAEAEA] font-medium tracking-tight ${playfair.className}`}
+              className={`text-5xl md:text-[7rem] lg:text-[9rem] leading-[0.9] font-medium tracking-tight ${playfair.className}`}
+              style={{ color: "#CCD0CF" }}
             >
               ARCHITECTING
             </h1>
@@ -95,29 +99,33 @@ export function Hero() {
             {/* Line 2: italic serif + uppercase sans */}
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mt-2 md:mt-4">
               <span 
-                className={`text-6xl md:text-[8rem] lg:text-[10rem] leading-[0.8] text-zinc-400 font-normal italic ${playfair.className}`}
+                className={`text-6xl md:text-[8rem] lg:text-[10rem] leading-[0.8] font-normal italic ${playfair.className}`}
+                style={{ color: "#9BA8AB" }}
               >
                 secure
               </span>
-              <span className={`text-4xl md:text-[6rem] lg:text-[7.5rem] leading-[0.9] text-[#EAEAEA] font-medium tracking-tight ${playfair.className}`}>
+              <span className={`text-4xl md:text-[6rem] lg:text-[7.5rem] leading-[0.9] font-medium tracking-tight ${playfair.className}`}
+                style={{ color: "#CCD0CF" }}>
                 SYSTEMS
               </span>
             </div>
 
             {/* Line 3: Small elegant subtext embedded */}
             <div className="mt-12 md:mt-20 flex flex-col md:flex-row items-center justify-between w-full max-w-4xl px-4 gap-8">
-              <p className="text-zinc-500 text-sm md:text-base max-w-[280px] text-center md:text-left leading-relaxed font-light">
+              <p className="text-sm md:text-base max-w-[280px] text-center md:text-left leading-relaxed font-light"
+                style={{ color: "#4A5C6A" }}>
                 Bridging offensive security and production engineering to build resilient infrastructure.
               </p>
               
               <div className="flex flex-col items-center md:items-end gap-2">
                  <Link
                     href="/work"
-                    className="group flex items-center justify-center gap-3 w-16 h-16 rounded-full bg-white text-black hover:scale-105 transition-transform duration-500 ease-out"
+                    className="group flex items-center justify-center gap-3 w-16 h-16 rounded-full hover:scale-105 transition-transform duration-500 ease-out"
+                    style={{ background: "#CCD0CF", color: "#06141B" }}
                   >
                     <ArrowDownRight size={24} className="group-hover:rotate-[-45deg] transition-transform duration-500 ease-out" />
                   </Link>
-                  <span className="text-xs uppercase tracking-widest text-zinc-500 mt-2">View Work</span>
+                  <span className="text-xs uppercase tracking-widest mt-2" style={{ color: "#4A5C6A" }}>View Work</span>
               </div>
             </div>
 

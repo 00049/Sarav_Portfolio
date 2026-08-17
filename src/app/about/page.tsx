@@ -34,9 +34,9 @@ export default function AboutPage() {
             <FadeInSection delay={0.2} direction="right">
               <div className="sticky top-[100px] rounded-lg overflow-hidden border border-border shadow-[0_24px_64px_rgba(0,0,0,0.4)]">
                 {/* Premium dark identity card */}
-                <div className="relative pt-12 px-8 pb-8 flex flex-col items-center bg-gradient-to-br from-[#11212D] from-0% via-[#11212D] via-60% to-[#06141B] to-100% border-b border-border">
+                <div className="relative pt-12 px-8 pb-8 flex flex-col items-center bg-gradient-to-br from-[#0A1217] from-0% via-[#0A1217] via-60% to-[#04090D] to-100% border-b border-border">
                   {/* Dot grid */}
-                  <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(74,92,106,0.12)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
                   {/* Corner accents */}
                   <div className="absolute top-3 left-3 w-5 h-5 border-t border-l border-border-hover" />
                   <div className="absolute top-3 right-3 w-5 h-5 border-t border-r border-border-hover" />
@@ -52,12 +52,12 @@ export default function AboutPage() {
                   </div>
                   <h2 className="relative z-10 text-lg font-bold text-primary m-0 mb-1.5 font-sans text-center">Saravpreet Singh Pruthi</h2>
                   <p className="relative z-10 text-[11px] text-accent font-mono m-0 mb-4 tracking-[0.08em] uppercase">Security / Full-Stack Engineer</p>
-                  <div className="relative z-10 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[rgba(74,92,106,0.12)] border border-border text-[11px] font-mono text-secondary">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                  <div className="relative z-10 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.03] border border-border text-[11px] font-mono text-secondary">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent-strong shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
                     Available for hire
                   </div>
                 </div>
-                <div className="p-7 bg-background-card flex flex-col gap-3.5">
+                <div className="p-7 bg-background-card flex flex-col gap-3.5 border-t border-border">
                   <div className="flex items-center gap-3 text-[13px] text-secondary">
                     <MapPin size={14} className="text-muted" /> Shimla, India · Open to Remote
                   </div>

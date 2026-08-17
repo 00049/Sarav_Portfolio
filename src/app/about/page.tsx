@@ -1,11 +1,11 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import { Navbar } from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { ContactCTAStrip } from "@/components/sections/home/ContactCTAStrip";
 import { FadeInSection } from "@/components/motion/FadeInSection";
 import { ScrollTimeline } from "@/components/ui/ScrollTimeline";
-import { NodeGraphic } from "@/components/ui/NodeGraphic";
 import { aboutData } from "@/lib/data/about";
 import { MapPin, Briefcase, GraduationCap } from "lucide-react";
 
@@ -40,9 +40,15 @@ export default function AboutPage() {
                   {/* Corner accents */}
                   <div className="absolute top-3 left-3 w-5 h-5 border-t border-l border-border-hover" />
                   <div className="absolute top-3 right-3 w-5 h-5 border-t border-r border-border-hover" />
-                  {/* Monogram */}
-                  <div className="relative z-10 mb-5">
-                    <NodeGraphic size={100} />
+                  {/* Profile Image */}
+                  <div className="relative z-10 mb-5 w-[100px] h-[100px] rounded-full overflow-hidden border-2 border-border shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+                    <Image 
+                      src="/profile.jpg" 
+                      alt="Saravpreet Singh Pruthi" 
+                      fill 
+                      sizes="100px" 
+                      className="object-cover object-[center_top] grayscale contrast-125" 
+                    />
                   </div>
                   <h2 className="relative z-10 text-lg font-bold text-primary m-0 mb-1.5 font-sans text-center">Saravpreet Singh Pruthi</h2>
                   <p className="relative z-10 text-[11px] text-accent font-mono m-0 mb-4 tracking-[0.08em] uppercase">Security / Full-Stack Engineer</p>

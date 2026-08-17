@@ -16,39 +16,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        "background-secondary": "var(--background-secondary)",
-        "background-card": "var(--background-card)",
-        "background-elevated": "var(--background-elevated)",
-        border: "var(--border)",
-        "border-hover": "var(--border-hover)",
-        "text-primary": "var(--text-primary)",
-        "text-secondary": "var(--text-secondary)",
-        "text-muted": "var(--text-muted)",
-        accent: "var(--accent)",
-        "accent-strong": "var(--accent-strong)",
-        "accent-subtle": "var(--accent-subtle)",
-        // Legacy aliases for backward compat
-        "accent-gold": "var(--accent)",
-        "accent-blue": "var(--accent)",
-        "accent-cyan": "var(--accent)",
-        "accent-green": "var(--text-muted)",
-      },
-      fontFamily: {
-        sans: ["var(--font-geist-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
-        mono: ["var(--font-geist-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
-      },
-      borderRadius: {
-        sm: "var(--radius-sm)",
-        md: "var(--radius-md)",
-        lg: "var(--radius-lg)",
-        xl: "var(--radius-xl)",
-      },
-      boxShadow: {
-        card: "var(--shadow-card)",
-        lifted: "var(--shadow-lifted)",
-      },
       transitionTimingFunction: {
         "in-expo": "cubic-bezier(0.95, 0.05, 0.795, 0.035)",
         "out-expo": "cubic-bezier(0.19, 1, 0.22, 1)",

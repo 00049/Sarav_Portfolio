@@ -10,6 +10,51 @@ import type { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+    id: "thejakhoocrest",
+    title: "The Jakhoo Crest",
+    shortDescription: "Modern Himalayan Luxury Hotel",
+    status: "production",
+    featured: true,
+    year: 2024,
+    tags: ["Frontend", "UX/UI", "Next.js", "Tailwind CSS"],
+    techStack: [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Framer Motion",
+    ],
+    coverImage: "/projects/jakhoo_crest_real.png",
+    cardMetrics: [
+      "Modern luxury aesthetic",
+      "Seamless fluid animations",
+      "Optimal performance score",
+    ],
+    metrics: [
+      {
+        label: "Performance",
+        value: "Optimal",
+        detail: "Fast load times via Next.js",
+      },
+      {
+        label: "Design",
+        value: "Immersive",
+        detail: "Interactive mountain retreat experience",
+      },
+      {
+        label: "UX",
+        value: "Fluid",
+        detail: "Hardware-accelerated animations",
+      }
+    ],
+    problemStatement:
+      "Luxury hospitality websites typically suffer from severe performance bloat due to oversized media and third-party widgets. The Jakhoo Crest required a digital sanctuary that mirrored the physical property's serenity without sacrificing speed. The challenge was delivering a striking, hardware-accelerated experience that achieves optimal Core Web Vitals on low-power mobile devices.",
+    architectureSummary:
+      "Engineered a Next.js 14 static generation architecture to ensure optimal SEO and instantaneous delivery. Leveraged Framer Motion for declarative, physics-based micro-interactions that strictly respect user reduced-motion preferences. Developed custom React hooks to synchronize scroll-driven animations with route transitions, achieving near-perfect Lighthouse scores.",
+    securityHighlights: [],
+    githubUrl: "https://github.com/00049/thejakhoocrest",
+    liveUrl: "https://www.thejakhoocrest.com/",
+  },
+  {
     id: "naanz",
     title: "NAANZ",
     shortDescription: "AI-Powered Security Audit SaaS",
@@ -32,6 +77,7 @@ export const projects: Project[] = [
       "JWT",
       "Next.js 14",
     ],
+    coverImage: "/projects/naanz_real.png",
     cardMetrics: [
       "29 security modules",
       "DPDP Act 2023 mapped",
@@ -72,50 +118,92 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/00049/NANZ",
     liveUrl: "https://nanz-drab.vercel.app/",
   },
-
   {
-    id: "thejakhoocrest",
-    title: "The Jakhoo Crest",
-    shortDescription: "Modern Himalayan Luxury Hotel",
+    id: "cafe-1873",
+    title: "Cafe 1873",
+    shortDescription: "Heritage Hill-Café on Shimla's Mall Road",
     status: "production",
     featured: true,
-    year: 2024,
-    tags: ["Frontend", "UX/UI", "Next.js", "Tailwind CSS"],
+    year: 2025,
+    tags: ["Frontend", "Heritage", "Vanilla Web"],
     techStack: [
-      "Next.js",
-      "React",
-      "Tailwind CSS",
-      "Framer Motion",
+      "HTML5",
+      "CSS3",
+      "Vanilla JavaScript",
+      "Responsive Design",
     ],
+    coverImage: "/projects/cafe_1873_real.png",
     cardMetrics: [
-      "Modern luxury aesthetic",
-      "Seamless fluid animations",
-      "Optimal performance score",
+      "150+ years of legacy",
+      "Hardware-accelerated animations",
+      "Semantic HTML structure",
     ],
     metrics: [
       {
         label: "Performance",
-        value: "Optimal",
-        detail: "Fast load times via Next.js",
+        value: "Optimized",
+        detail: "Vanilla web technologies with no framework bloat",
       },
       {
         label: "Design",
-        value: "Immersive",
-        detail: "Interactive mountain retreat experience",
+        value: "Timeless",
+        detail: "Classic typography matching the cafe's heritage",
+      },
+    ],
+    problemStatement:
+      "A heritage brand like Cafe 1873 (established 1795 as a trading house, 1873 as a flagship on Shimla's Mall Road) needs a digital presence that reflects its legacy. The challenge was building an immersive story-driven experience without the overhead of heavy JavaScript frameworks, prioritizing smooth scroll animations and timeless typography.",
+    architectureSummary:
+      "Developed a custom static architecture utilizing pure HTML, CSS, and Vanilla JavaScript. Implemented Intersection Observers for high-performance scroll animations and dynamic timeline progression. Structured CSS with token-based methodology (tokens.css, layout.css, typography.css) for maintainability and precise design control.",
+    securityHighlights: [],
+    githubUrl: undefined,
+    liveUrl: "https://cafe-1873.vercel.app/",
+  },
+  {
+    id: "neta-samachar",
+    title: "Neta Samachar",
+    shortDescription: "Indian Political Data Aggregation Platform",
+    status: "production",
+    featured: true,
+    year: 2026,
+    tags: ["Data Engineering", "Next.js", "Full Stack", "Civic Tech"],
+    techStack: [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Python Scrapy",
+      "Framer Motion",
+    ],
+    coverImage: "/projects/neta_samachar_real.png",
+    cardMetrics: [
+      "10,000+ verified leader records",
+      "Asset & criminal case tracking",
+      "Instant multi-parameter search",
+    ],
+    metrics: [
+      {
+        label: "Data Points",
+        value: "Comprehensive",
+        detail: "Election history, assets, cases, attendance",
+      },
+      {
+        label: "Search Engine",
+        value: "Optimized",
+        detail: "Query by politician, constituency, or party",
       },
       {
         label: "UX",
-        value: "Fluid",
-        detail: "Hardware-accelerated animations",
-      }
+        value: "Accessible",
+        detail: "Complex affidavits simplified into plain UI",
+      },
     ],
     problemStatement:
-      "Luxury hospitality websites typically suffer from severe performance bloat due to oversized media and third-party widgets. The Jakhoo Crest required a digital sanctuary that mirrored the physical property's serenity without sacrificing speed. The challenge was delivering a striking, hardware-accelerated experience that achieves optimal Core Web Vitals on low-power mobile devices.",
+      "Indian voters lack a centralized, accessible platform to verify the background and performance of public leaders. Critical information regarding assets, criminal cases, and parliamentary attendance is often buried in lengthy official affidavits or scattered across disconnected portals, making it extremely difficult for citizens to make informed democratic decisions.",
     architectureSummary:
-      "Engineered a Next.js 14 static generation architecture to ensure optimal SEO and instantaneous delivery. Leveraged Framer Motion for declarative, physics-based micro-interactions that strictly respect user reduced-motion preferences. Developed custom React hooks to synchronize scroll-driven animations with route transitions, achieving near-perfect Lighthouse scores.",
+      "A robust data aggregation platform engineered with Next.js and Tailwind CSS. The system utilizes Python-based scraping pipelines to ingest and standardize complex data from various official government sources and election affidavits. It features a highly optimized, indexed search engine allowing users to instantly query politicians, constituencies, and parties, presenting the data through an accessible, dark-themed interface.",
     securityHighlights: [],
-    githubUrl: "https://github.com/00049/thejakhoocrest",
-    liveUrl: "https://www.thejakhoocrest.com/",
+    githubUrl: "https://github.com/00049/NetaSamachar",
+    liveUrl: "https://neta-samachar.vercel.app/",
   },
   {
     id: "phishsim-pro",
@@ -133,6 +221,7 @@ export const projects: Project[] = [
       "Node.js",
       "PostgreSQL",
     ],
+    coverImage: "/projects/phishsim_project.jpg",
     cardMetrics: [
       "4+ attack vectors simulated",
       "Real-time behavioral scoring",
@@ -167,8 +256,6 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/00049/phishsim-pro",
     liveUrl: "https://phishsim-pro.vercel.app/login",
   },
-
-
   {
     id: "siem-lab",
     title: "SIEM Threat Detection Lab",
@@ -185,6 +272,7 @@ export const projects: Project[] = [
       "Nmap",
       "FortiGate",
     ],
+    coverImage: "/projects/siem_lab_project.jpg",
     cardMetrics: [
       "3 attack categories simulated",
       "2 SIEM platforms integrated",
@@ -222,47 +310,8 @@ export const projects: Project[] = [
       "Wireshark packet-level validation of SIEM alert accuracy",
       "Custom detection rules refined through iterative tuning cycles",
     ],
-    githubUrl: "[GITHUB_URL_TO_BE_PROVIDED]",
-    liveUrl: undefined,
-  },
-  {
-    id: "cafe-1873",
-    title: "Cafe 1873",
-    shortDescription: "Heritage Hill-Café on Shimla's Mall Road",
-    status: "production",
-    featured: true,
-    year: 2025,
-    tags: ["Frontend", "Heritage", "Vanilla Web"],
-    techStack: [
-      "HTML5",
-      "CSS3",
-      "Vanilla JavaScript",
-      "Responsive Design",
-    ],
-    cardMetrics: [
-      "150+ years of legacy",
-      "Hardware-accelerated animations",
-      "Semantic HTML structure",
-    ],
-    metrics: [
-      {
-        label: "Performance",
-        value: "Optimized",
-        detail: "Vanilla web technologies with no framework bloat",
-      },
-      {
-        label: "Design",
-        value: "Timeless",
-        detail: "Classic typography matching the cafe's heritage",
-      },
-    ],
-    problemStatement:
-      "A heritage brand like Cafe 1873 (established 1795 as a trading house, 1873 as a flagship on Shimla's Mall Road) needs a digital presence that reflects its legacy. The challenge was building an immersive story-driven experience without the overhead of heavy JavaScript frameworks, prioritizing smooth scroll animations and timeless typography.",
-    architectureSummary:
-      "Developed a custom static architecture utilizing pure HTML, CSS, and Vanilla JavaScript. Implemented Intersection Observers for high-performance scroll animations and dynamic timeline progression. Structured CSS with token-based methodology (tokens.css, layout.css, typography.css) for maintainability and precise design control.",
-    securityHighlights: [],
     githubUrl: undefined,
-    liveUrl: "https://cafe-1873.vercel.app/",
+    liveUrl: undefined,
   },
   {
     id: "portfolio-website",

@@ -14,7 +14,7 @@ export default function ContactPage() {
   return (
     <>
       <Navbar />
-      <main id="main-content" style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      <main id="main-content" className="min-h-screen flex flex-col">
         <FadeInSection>
           <PageHeader
             title="Let's Talk"
@@ -23,8 +23,8 @@ export default function ContactPage() {
           />
         </FadeInSection>
 
-        <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <FadeInSection delay={0.2} style={{ width: "100%" }}>
+        <div className="flex-1 flex items-center justify-center">
+          <FadeInSection delay={0.2} className="w-full">
             <Contact />
           </FadeInSection>
         </div>

@@ -7,7 +7,6 @@ import { MapPin, Mail } from "lucide-react";
 import { FiGithub as Github, FiLinkedin as Linkedin } from "react-icons/fi";
 import Link from "next/link";
 import Image from "next/image";
-import { NodeGraphic } from "@/components/ui/NodeGraphic";
 
 function Label({ children }: { children: React.ReactNode }) {
   return (

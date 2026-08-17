@@ -1,39 +1,29 @@
 export function ProficiencyLegend() {
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: 16,
-        fontSize: 12,
-        fontFamily: "var(--font-geist-mono)",
-        color: "var(--text-muted)",
-        flexWrap: "wrap",
-      }}
-    >
-      <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-        <div style={{ display: "flex", gap: 3 }}>
-          <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--accent-gold)" }} />
-          <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--accent-gold)" }} />
-          <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--accent-gold)" }} />
+    <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-muted">
+      <div className="flex items-center gap-1.5">
+        <div className="flex gap-[3px]">
+          <div className="w-[6px] h-[6px] rounded-full bg-accent" />
+          <div className="w-[6px] h-[6px] rounded-full bg-accent" />
+          <div className="w-[6px] h-[6px] rounded-full bg-accent" />
         </div>
         <span>Core</span>
       </div>
 
-      <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-        <div style={{ display: "flex", gap: 3 }}>
-          <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--accent-gold)" }} />
-          <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--accent-gold)" }} />
-          <div style={{ width: 6, height: 6, borderRadius: "50%", background: "transparent", border: "1px solid var(--border)" }} />
+      <div className="flex items-center gap-1.5">
+        <div className="flex gap-[3px]">
+          <div className="w-[6px] h-[6px] rounded-full bg-accent" />
+          <div className="w-[6px] h-[6px] rounded-full bg-accent" />
+          <div className="w-[6px] h-[6px] rounded-full bg-transparent border border-border" />
         </div>
         <span>Proficient</span>
       </div>
 
-      <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-        <div style={{ display: "flex", gap: 3 }}>
-          <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--accent-gold)" }} />
-          <div style={{ width: 6, height: 6, borderRadius: "50%", background: "transparent", border: "1px solid var(--border)" }} />
-          <div style={{ width: 6, height: 6, borderRadius: "50%", background: "transparent", border: "1px solid var(--border)" }} />
+      <div className="flex items-center gap-1.5">
+        <div className="flex gap-[3px]">
+          <div className="w-[6px] h-[6px] rounded-full bg-accent" />
+          <div className="w-[6px] h-[6px] rounded-full bg-transparent border border-border" />
+          <div className="w-[6px] h-[6px] rounded-full bg-transparent border border-border" />
         </div>
         <span>Familiar</span>
       </div>

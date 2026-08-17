@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { ElementType } from "react";
 import * as Icons from "lucide-react";
 import type { TechCategory } from "@/types";
+import { cn } from "@/lib/utils";
 
 interface TechCategoryCardProps {
   category: TechCategory;
@@ -19,104 +20,36 @@ export function TechCategoryCard({ category }: TechCategoryCardProps) {
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      style={{
-        background: "var(--background-card)",
-        border: "1px solid",
-        borderColor: hovered ? "var(--border-hover)" : "var(--border)",
-        borderRadius: "var(--radius-lg)",
-        padding: 24,
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        transition: "all 250ms ease",
-      }}
+      className={cn(
+        "bg-background-card border rounded-lg p-6 h-full flex flex-col transition-all duration-250 ease-out",
+        hovered ? "border-border-hover" : "border-border"
+      )}
     >
       {/* ── Header row ────────────────────────────────────────────────────── */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: 12,
-        }}
-      >
-        <div
-          style={{
-            width: 32,
-            height: 32,
-            background: "rgba(242,217,160,0.08)",
-            border: "1px solid var(--border)",
-            borderRadius: "var(--radius-md)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "var(--accent-gold)",
-            flexShrink: 0,
-          }}
-        >
+      <div className="flex items-center gap-3">
+        <div className="w-8 h-8 bg-[rgba(242,217,160,0.08)] border border-border rounded-md flex items-center justify-center text-accent shrink-0">
           <IconComponent size={16} />
         </div>
 
-        <h4
-          style={{
-            fontSize: 15,
-            fontWeight: 600,
-            color: "var(--text-primary)",
-            letterSpacing: "-0.01em",
-            margin: 0,
-            fontFamily: "var(--font-geist-sans)",
-          }}
-        >
+        <h4 className="text-[15px] font-semibold text-primary tracking-[-0.01em] m-0 font-sans">
           {category.label}
         </h4>
 
-        <div
-          style={{
-            marginLeft: "auto",
-            fontSize: 11,
-            fontFamily: "var(--font-geist-mono)",
-            color: "var(--text-muted)",
-            background: "rgba(255,255,255,0.04)",
-            border: "1px solid var(--border)",
-            padding: "2px 7px",
-            borderRadius: 999,
-          }}
-        >
+        <div className="ml-auto text-[11px] font-mono text-muted bg-[rgba(255,255,255,0.04)] border border-border px-[7px] py-[2px] rounded-full">
           {category.items.length} tools
         </div>
       </div>
 
       {/* ── Description ───────────────────────────────────────────────────── */}
-      <p
-        style={{
-          fontSize: 13,
-          color: "var(--text-muted)",
-          lineHeight: 1.6,
-          marginTop: 8,
-          marginBottom: 16,
-        }}
-      >
+      <p className="text-[13px] text-muted leading-[1.6] mt-2 mb-4">
         {category.description}
       </p>
 
       {/* ── Divider ───────────────────────────────────────────────────────── */}
-      <div
-        style={{
-          width: "100%",
-          height: 1,
-          background: "var(--border)",
-        }}
-      />
+      <div className="w-full h-[1px] bg-border" />
 
       {/* ── Items List ────────────────────────────────────────────────────── */}
-      <div
-        style={{
-          marginTop: 16,
-          display: "flex",
-          flexDirection: "column",
-          gap: 8,
-          flex: 1,
-        }}
-      >
+      <div className="mt-4 flex flex-col gap-2 flex-1">
         {category.items.map((item, idx) => {
           const isCore = item.proficiency === "core";
           const isProficient = item.proficiency === "proficient";
@@ -124,90 +57,42 @@ export function TechCategoryCard({ category }: TechCategoryCardProps) {
           return (
             <div
               key={idx}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                gap: 12,
-              }}
+              className="flex items-center justify-between gap-3"
             >
               {/* Left: Name + Note */}
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  flexWrap: "wrap",
-                  gap: 8,
-                }}
-              >
-                <span
-                  style={{
-                    fontSize: 13,
-                    color: "var(--text-secondary)",
-                    fontFamily: "var(--font-geist-sans)",
-                  }}
-                >
+              <div className="flex items-center flex-wrap gap-2">
+                <span className="text-[13px] text-secondary font-sans">
                   {item.name}
                 </span>
                 {item.note && (
-                  <span
-                    style={{
-                      fontSize: 11,
-                      color: "var(--text-muted)",
-                      fontFamily: "var(--font-geist-mono)",
-                    }}
-                  >
+                  <span className="text-[11px] text-muted font-mono">
                     {item.note}
                   </span>
                 )}
               </div>
 
               {/* Right: Proficiency Indicator */}
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 4,
-                  flexShrink: 0,
-                }}
-              >
-                <div style={{ display: "flex", gap: 3, alignItems: "center" }}>
+              <div className="flex items-center gap-1 shrink-0">
+                <div className="flex gap-[3px] items-center">
+                  <div className="w-[6px] h-[6px] rounded-full bg-accent" />
                   <div
-                    style={{
-                      width: 6,
-                      height: 6,
-                      borderRadius: "50%",
-                      background: "var(--accent-gold)",
-                    }}
+                    className={cn(
+                      "w-[6px] h-[6px] rounded-full",
+                      isCore || isProficient ? "bg-accent border-none" : "bg-transparent border border-border"
+                    )}
                   />
                   <div
-                    style={{
-                      width: 6,
-                      height: 6,
-                      borderRadius: "50%",
-                      background:
-                        isCore || isProficient ? "var(--accent-gold)" : "transparent",
-                      border:
-                        isCore || isProficient ? "none" : "1px solid var(--border)",
-                    }}
-                  />
-                  <div
-                    style={{
-                      width: 6,
-                      height: 6,
-                      borderRadius: "50%",
-                      background: isCore ? "var(--accent-gold)" : "transparent",
-                      border: isCore ? "none" : "1px solid var(--border)",
-                    }}
+                    className={cn(
+                      "w-[6px] h-[6px] rounded-full",
+                      isCore ? "bg-accent border-none" : "bg-transparent border border-border"
+                    )}
                   />
                 </div>
                 <span
-                  style={{
-                    fontSize: 10,
-                    fontFamily: "var(--font-geist-sans)",
-                    color: isCore ? "var(--accent-gold)" : "var(--text-muted)",
-                    marginLeft: 4,
-                  }}
+                  className={cn(
+                    "text-[10px] font-sans ml-1",
+                    isCore ? "text-accent" : "text-muted"
+                  )}
                 >
                   {isCore ? "Core" : isProficient ? "Proficient" : "Familiar"}
                 </span>

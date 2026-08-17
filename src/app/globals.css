@@ -1,51 +1,62 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+
+  --color-background: #06141B;
+  --color-background-secondary: #11212D;
+  --color-background-card: #253745;
+  --color-background-elevated: #4A5C6A;
+
+  --color-border: rgba(74, 92, 106, 0.45);
+  --color-border-hover: rgba(155, 168, 171, 0.55);
+
+  --color-text-primary: #CCD0CF;
+  --color-text-secondary: #9BA8AB;
+  --color-text-muted: #4A5C6A;
+
+  --color-accent: #9BA8AB;
+  --color-accent-strong: #CCD0CF;
+  --color-accent-subtle: #253745;
+
+  --color-accent-gold: #9BA8AB;
+  --color-accent-blue: #9BA8AB;
+  --color-accent-cyan: #9BA8AB;
+  --color-accent-green: #4A5C6A;
+
+  --shadow-card: 0 1px 3px rgba(6, 20, 27, 0.5), 0 4px 16px rgba(6, 20, 27, 0.3);
+  --shadow-lifted: 0 8px 32px rgba(6, 20, 27, 0.6), 0 2px 8px rgba(6, 20, 27, 0.4);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
 }
 
 :root {
-  /* ── Palette — Deep Blue Slate ───────────────────────────────────────────── */
-  --palette-900: #06141B; /* Darkest — page background                        */
-  --palette-800: #11212D; /* Deep — section alt backgrounds                   */
-  --palette-700: #253745; /* Dark — cards, elevated surfaces                  */
-  --palette-600: #4A5C6A; /* Mid — borders, decorative, muted text            */
-  --palette-400: #9BA8AB; /* Light — secondary text, accent emphasis          */
-  --palette-200: #CCD0CF; /* Lightest — primary typography, high-contrast CTA */
+  --background: var(--color-background);
+  --background-secondary: var(--color-background-secondary);
+  --background-card: var(--color-background-card);
+  --background-elevated: var(--color-background-elevated);
 
-  /* ── Semantic Backgrounds ────────────────────────────────────────────────── */
-  --background:           #06141B;
-  --background-secondary: #11212D;
-  --background-card:      #253745;
-  --background-elevated:  #4A5C6A;
+  --border: var(--color-border);
+  --border-hover: var(--color-border-hover);
 
-  /* ── Borders ─────────────────────────────────────────────────────────────── */
-  --border:               rgba(74, 92, 106, 0.45);
-  --border-hover:         rgba(155, 168, 171, 0.55);
+  --text-primary: var(--color-text-primary);
+  --text-secondary: var(--color-text-secondary);
+  --text-muted: var(--color-text-muted);
 
-  /* ── Typography ──────────────────────────────────────────────────────────── */
-  --text-primary:         #CCD0CF;
-  --text-secondary:       #9BA8AB;
-  --text-muted:           #4A5C6A;
+  --accent: var(--color-accent);
+  --accent-strong: var(--color-accent-strong);
+  --accent-subtle: var(--color-accent-subtle);
 
-  /* ── Accents (monochromatic — no warm or neon colors) ────────────────────── */
-  --accent:               #9BA8AB;   /* emphasis, active states               */
-  --accent-strong:        #CCD0CF;   /* high-contrast highlights, CTAs        */
-  --accent-subtle:        #253745;   /* background tint for active elements   */
+  --accent-gold: var(--color-accent-gold);
+  --accent-blue: var(--color-accent-blue);
+  --accent-cyan: var(--color-accent-cyan);
+  --accent-green: var(--color-accent-green);
 
-  /* Legacy aliases — kept for backward compat with any remaining references */
-  --accent-gold:          #9BA8AB;
-  --accent-blue:          #9BA8AB;
-  --accent-cyan:          #9BA8AB;
-  --accent-green:         #4A5C6A;
-
-  /* ── Shadows ─────────────────────────────────────────────────────────────── */
-  --shadow-card:   0 1px 3px rgba(6, 20, 27, 0.5), 0 4px 16px rgba(6, 20, 27, 0.3);
-  --shadow-lifted: 0 8px 32px rgba(6, 20, 27, 0.6), 0 2px 8px rgba(6, 20, 27, 0.4);
-
-  /* ── Radius ──────────────────────────────────────────────────────────────── */
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
@@ -53,9 +64,9 @@
 }
 
 body {
-  background-color: var(--background);
-  color: var(--text-primary);
-  font-family: var(--font-sans), sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
   letter-spacing: -0.01em;
   /* Apply fluid body typography base */
   font-size: clamp(0.9375rem, 0.9vw + 0.65rem, 1.125rem);
@@ -213,4 +224,13 @@ html.lenis body {
 @keyframes spin-slow {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+.text-outline {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px currentColor;
+}
+@media (min-width: 768px) {
+  .text-outline {
+    -webkit-text-stroke: 2px currentColor;
+  }
 }

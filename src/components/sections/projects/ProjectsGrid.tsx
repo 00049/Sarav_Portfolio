@@ -29,15 +29,9 @@ export function ProjectsGrid({ projects, tags }: ProjectsGridProps) {
         />
       </FadeInSection>
 
-      <section
-        style={{
-          padding: "0 24px 120px",
-          maxWidth: 1100,
-          margin: "0 auto",
-        }}
-      >
+      <section className="px-6 pb-[120px] max-w-[1100px] mx-auto">
         {filteredProjects.length === 0 ? (
-          <div style={{ textAlign: "center", padding: "80px 0", color: "var(--text-muted)" }}>
+          <div className="text-center py-20 text-muted">
             No projects found matching the selected tag.
           </div>
         ) : (

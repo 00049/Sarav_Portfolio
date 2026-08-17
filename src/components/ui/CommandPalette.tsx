@@ -82,8 +82,9 @@ function CommandPalette() {
                 animate="visible"
                 exit="hidden"
                 variants={overlayVariants}
-                className="fixed inset-0 z-[9999] bg-black/60 backdrop-blur-sm"
-               suppressHydrationWarning />
+                className="fixed inset-0 z-[9999] bg-background-secondary/95 backdrop-blur-sm"
+                suppressHydrationWarning 
+              />
             </Dialog.Overlay>
             
             <Dialog.Content asChild>
@@ -92,63 +93,54 @@ function CommandPalette() {
                 animate="visible"
                 exit="hidden"
                 variants={contentVariants}
-                className="fixed top-[50%] left-[50%] z-[9999] w-[90vw] max-w-[600px] translate-x-[-50%] translate-y-[-50%] overflow-hidden rounded-xl shadow-2xl"
-                style={{
-                  border: "1px solid var(--border)",
-                  background: "var(--background-secondary)",
-                }}
-               suppressHydrationWarning>
+                className="fixed top-[50%] left-[50%] z-[9999] w-[90vw] max-w-[600px] translate-x-[-50%] translate-y-[-50%] overflow-hidden rounded-xl shadow-card border border-border bg-background-card"
+                suppressHydrationWarning
+              >
                 <Command 
-                  className="w-full text-zinc-300"
+                  className="w-full text-secondary"
                   label="Command Menu"
                   loop
                 >
-                  <div className="flex items-center border-b border-zinc-800 px-4" cmdk-input-wrapper="">
-                    <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
+                  <div className="flex items-center border-b border-border px-4" cmdk-input-wrapper="">
+                    <Search className="mr-2 h-4 w-4 shrink-0 text-muted" />
                     <Command.Input 
                       placeholder="Type a command or search..." 
-                      className="flex h-12 w-full rounded-md bg-transparent py-3 text-sm !outline-none !ring-0 disabled:cursor-not-allowed disabled:opacity-50" 
-                      style={{ 
-                        outline: "none", 
-                        boxShadow: "none", 
-                        border: "none",
-                        color: "var(--text-primary)",
-                      }}
+                      className="flex h-12 w-full rounded-md bg-transparent py-3 text-sm outline-none ring-0 disabled:cursor-not-allowed disabled:opacity-50 text-primary placeholder:text-muted border-none shadow-none" 
                     />
                   </div>
                   
-                  <Command.List className="max-h-[300px] overflow-y-auto overflow-x-hidden p-2 text-zinc-300">
-                    <Command.Empty className="py-6 text-center text-sm text-zinc-500">No results found.</Command.Empty>
+                  <Command.List className="max-h-[300px] overflow-y-auto overflow-x-hidden p-2 text-secondary">
+                    <Command.Empty className="py-6 text-center text-sm text-muted">No results found.</Command.Empty>
                     
-                    <Command.Group heading="Navigate" className="px-2 py-1 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-zinc-500">
-                      <Command.Item onSelect={() => runCommand(() => router.push("/"))} className="relative flex cursor-default select-none items-center rounded-sm px-2 py-2.5 text-sm outline-none aria-selected:bg-zinc-800 aria-selected:text-white data-[disabled]:pointer-events-none data-[disabled]:opacity-50 transition-colors">
+                    <Command.Group heading="Navigate" className="px-2 py-1 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted">
+                      <Command.Item onSelect={() => runCommand(() => router.push("/"))} className="relative flex cursor-default select-none items-center rounded-sm px-2 py-2.5 text-sm outline-none aria-selected:bg-background-elevated aria-selected:text-primary data-[disabled]:pointer-events-none data-[disabled]:opacity-50 transition-colors">
                         <Home className="mr-2 h-4 w-4" />
                         <span>Home</span>
                       </Command.Item>
-                      <Command.Item onSelect={() => runCommand(() => router.push("/work"))} className="relative flex cursor-default select-none items-center rounded-sm px-2 py-2.5 text-sm outline-none aria-selected:bg-zinc-800 aria-selected:text-white data-[disabled]:pointer-events-none data-[disabled]:opacity-50 transition-colors">
+                      <Command.Item onSelect={() => runCommand(() => router.push("/work"))} className="relative flex cursor-default select-none items-center rounded-sm px-2 py-2.5 text-sm outline-none aria-selected:bg-background-elevated aria-selected:text-primary data-[disabled]:pointer-events-none data-[disabled]:opacity-50 transition-colors">
                         <FolderKanban className="mr-2 h-4 w-4" />
                         <span>Work</span>
                       </Command.Item>
-                      <Command.Item onSelect={() => runCommand(() => router.push("/skills"))} className="relative flex cursor-default select-none items-center rounded-sm px-2 py-2.5 text-sm outline-none aria-selected:bg-zinc-800 aria-selected:text-white data-[disabled]:pointer-events-none data-[disabled]:opacity-50 transition-colors">
+                      <Command.Item onSelect={() => runCommand(() => router.push("/skills"))} className="relative flex cursor-default select-none items-center rounded-sm px-2 py-2.5 text-sm outline-none aria-selected:bg-background-elevated aria-selected:text-primary data-[disabled]:pointer-events-none data-[disabled]:opacity-50 transition-colors">
                         <Sparkles className="mr-2 h-4 w-4" />
                         <span>Skills</span>
                       </Command.Item>
-                      <Command.Item onSelect={() => runCommand(() => router.push("/about"))} className="relative flex cursor-default select-none items-center rounded-sm px-2 py-2.5 text-sm outline-none aria-selected:bg-zinc-800 aria-selected:text-white data-[disabled]:pointer-events-none data-[disabled]:opacity-50 transition-colors">
+                      <Command.Item onSelect={() => runCommand(() => router.push("/about"))} className="relative flex cursor-default select-none items-center rounded-sm px-2 py-2.5 text-sm outline-none aria-selected:bg-background-elevated aria-selected:text-primary data-[disabled]:pointer-events-none data-[disabled]:opacity-50 transition-colors">
                         <User className="mr-2 h-4 w-4" />
                         <span>About</span>
                       </Command.Item>
-                      <Command.Item onSelect={() => runCommand(() => router.push("/contact"))} className="relative flex cursor-default select-none items-center rounded-sm px-2 py-2.5 text-sm outline-none aria-selected:bg-zinc-800 aria-selected:text-white data-[disabled]:pointer-events-none data-[disabled]:opacity-50 transition-colors">
+                      <Command.Item onSelect={() => runCommand(() => router.push("/contact"))} className="relative flex cursor-default select-none items-center rounded-sm px-2 py-2.5 text-sm outline-none aria-selected:bg-background-elevated aria-selected:text-primary data-[disabled]:pointer-events-none data-[disabled]:opacity-50 transition-colors">
                         <Mail className="mr-2 h-4 w-4" />
                         <span>Contact</span>
                       </Command.Item>
                     </Command.Group>
                     
-                    <Command.Group heading="Actions" className="mt-2 px-2 py-1 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-zinc-500">
-                      <Command.Item onSelect={() => runCommand(() => { window.open(resumeUrl, '_blank'); })} className="relative flex cursor-default select-none items-center rounded-sm px-2 py-2.5 text-sm outline-none aria-selected:bg-zinc-800 aria-selected:text-white data-[disabled]:pointer-events-none data-[disabled]:opacity-50 transition-colors">
+                    <Command.Group heading="Actions" className="mt-2 px-2 py-1 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted">
+                      <Command.Item onSelect={() => runCommand(() => { window.open(resumeUrl, '_blank'); })} className="relative flex cursor-default select-none items-center rounded-sm px-2 py-2.5 text-sm outline-none aria-selected:bg-background-elevated aria-selected:text-primary data-[disabled]:pointer-events-none data-[disabled]:opacity-50 transition-colors">
                         <Download className="mr-2 h-4 w-4" />
                         <span>Download Resume</span>
                       </Command.Item>
-                      <Command.Item onSelect={copyEmail} className="relative flex cursor-default select-none items-center rounded-sm px-2 py-2.5 text-sm outline-none aria-selected:bg-zinc-800 aria-selected:text-white data-[disabled]:pointer-events-none data-[disabled]:opacity-50 transition-colors">
+                      <Command.Item onSelect={copyEmail} className="relative flex cursor-default select-none items-center rounded-sm px-2 py-2.5 text-sm outline-none aria-selected:bg-background-elevated aria-selected:text-primary data-[disabled]:pointer-events-none data-[disabled]:opacity-50 transition-colors">
                         {copied ? <Check className="mr-2 h-4 w-4 text-green-500" /> : <Copy className="mr-2 h-4 w-4" />}
                         <span>{copied ? "Copied!" : "Copy Email"}</span>
                       </Command.Item>

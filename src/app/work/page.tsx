@@ -18,7 +18,7 @@ export default function ProjectsPage() {
   return (
     <>
       <Navbar />
-      <main id="main-content" style={{ minHeight: "100vh" }}>
+      <main id="main-content" className="min-h-screen">
         <FadeInSection>
           <PageHeader
             title="Projects"

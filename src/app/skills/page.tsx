@@ -18,7 +18,7 @@ export default function SkillsPage() {
   return (
     <>
       <Navbar />
-      <main id="main-content" style={{ minHeight: "100vh" }}>
+      <main id="main-content" className="min-h-screen">
         <FadeInSection>
           <PageHeader
             title="Tech Stack"
@@ -27,20 +27,14 @@ export default function SkillsPage() {
           />
         </FadeInSection>
 
-        <section style={{ padding: "0 24px 120px", maxWidth: 1100, margin: "0 auto" }}>
+        <section className="px-6 pb-[120px] max-w-[1100px] mx-auto">
           <FadeInSection delay={0.2}>
-            <div style={{ marginBottom: 48, display: "flex", justifyContent: "flex-end" }}>
+            <div className="mb-12 flex justify-end">
               <ProficiencyLegend />
             </div>
           </FadeInSection>
 
-          <div
-            style={{
-              display: "grid",
-              gap: 24,
-              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-            }}
-          >
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6">
             {techStackData.map((category, i) => (
               <FadeInSection key={category.id} delay={0.1 + i * 0.05}>
                 <TechCategoryCard category={category} />

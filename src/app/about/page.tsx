@@ -18,7 +18,7 @@ export default function AboutPage() {
   return (
     <>
       <Navbar />
-      <main id="main-content" style={{ minHeight: "100vh" }}>
+      <main id="main-content" className="min-h-screen">
         <FadeInSection>
           <PageHeader
             title="About Me"
@@ -27,39 +27,39 @@ export default function AboutPage() {
           />
         </FadeInSection>
 
-        <section style={{ padding: "0 24px 80px", maxWidth: 1100, margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 64, alignItems: "start" }}>
+        <section className="px-6 pb-20 max-w-[1100px] mx-auto">
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-16 items-start">
             
             {/* Identity Card */}
             <FadeInSection delay={0.2} direction="right">
-              <div style={{ position: "sticky", top: 100, borderRadius: "var(--radius-lg)", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "0 24px 64px rgba(0,0,0,0.4)" }}>
+              <div className="sticky top-[100px] rounded-lg overflow-hidden border border-border shadow-[0_24px_64px_rgba(0,0,0,0.4)]">
                 {/* Premium dark identity card */}
-                <div style={{ position: "relative", padding: "48px 32px 32px", display: "flex", flexDirection: "column", alignItems: "center", background: "linear-gradient(135deg, #11212D 0%, #11212D 60%, #06141B 100%)", borderBottom: "1px solid var(--border)" }}>
+                <div className="relative pt-12 px-8 pb-8 flex flex-col items-center bg-gradient-to-br from-[#11212D] from-0% via-[#11212D] via-60% to-[#06141B] to-100% border-b border-border">
                   {/* Dot grid */}
-                  <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(74,92,106,0.12) 1px, transparent 1px)", backgroundSize: "24px 24px", pointerEvents: "none" }} />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(74,92,106,0.12)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
                   {/* Corner accents */}
-                  <div style={{ position: "absolute", top: 12, left: 12, width: 20, height: 20, borderTop: "1px solid var(--border-hover)", borderLeft: "1px solid var(--border-hover)" }} />
-                  <div style={{ position: "absolute", top: 12, right: 12, width: 20, height: 20, borderTop: "1px solid var(--border-hover)", borderRight: "1px solid var(--border-hover)" }} />
+                  <div className="absolute top-3 left-3 w-5 h-5 border-t border-l border-border-hover" />
+                  <div className="absolute top-3 right-3 w-5 h-5 border-t border-r border-border-hover" />
                   {/* Monogram */}
-                  <div style={{ position: "relative", zIndex: 1, marginBottom: 20 }}>
+                  <div className="relative z-10 mb-5">
                     <NodeGraphic size={100} />
                   </div>
-                  <h2 style={{ position: "relative", zIndex: 1, fontSize: 18, fontWeight: 700, color: "var(--text-primary)", margin: 0, marginBottom: 6, fontFamily: "var(--font-geist-sans)", textAlign: "center" }}>Saravpreet Singh Pruthi</h2>
-                  <p style={{ position: "relative", zIndex: 1, fontSize: 11, color: "var(--accent-gold)", fontFamily: "var(--font-geist-mono)", margin: 0, marginBottom: 16, letterSpacing: "0.08em", textTransform: "uppercase" }}>Security / Full-Stack Engineer</p>
-                  <div style={{ position: "relative", zIndex: 1, display: "inline-flex", alignItems: "center", gap: 6, padding: "6px 12px", borderRadius: 999, background: "rgba(74, 92, 106, 0.12)", border: "1px solid var(--border)", fontSize: 11, fontFamily: "var(--font-geist-mono)", color: "var(--text-secondary)" }}>
-                    <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--accent)" }} />
+                  <h2 className="relative z-10 text-lg font-bold text-primary m-0 mb-1.5 font-sans text-center">Saravpreet Singh Pruthi</h2>
+                  <p className="relative z-10 text-[11px] text-accent font-mono m-0 mb-4 tracking-[0.08em] uppercase">Security / Full-Stack Engineer</p>
+                  <div className="relative z-10 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[rgba(74,92,106,0.12)] border border-border text-[11px] font-mono text-secondary">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                     Available for hire
                   </div>
                 </div>
-                <div style={{ padding: 28, background: "var(--background-card)", display: "flex", flexDirection: "column", gap: 14 }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 13, color: "var(--text-secondary)" }}>
-                    <MapPin size={14} style={{ color: "var(--text-muted)" }} /> Shimla, India · Open to Remote
+                <div className="p-7 bg-background-card flex flex-col gap-3.5">
+                  <div className="flex items-center gap-3 text-[13px] text-secondary">
+                    <MapPin size={14} className="text-muted" /> Shimla, India · Open to Remote
                   </div>
-                  <div style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 13, color: "var(--text-secondary)" }}>
-                    <Briefcase size={14} style={{ color: "var(--text-muted)" }} /> Open to Security & Full-Stack Roles
+                  <div className="flex items-center gap-3 text-[13px] text-secondary">
+                    <Briefcase size={14} className="text-muted" /> Open to Security & Full-Stack Roles
                   </div>
-                  <div style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 13, color: "var(--text-secondary)" }}>
-                    <GraduationCap size={14} style={{ color: "var(--text-muted)" }} /> B.Tech Cyber Security · Bennett University
+                  <div className="flex items-center gap-3 text-[13px] text-secondary">
+                    <GraduationCap size={14} className="text-muted" /> B.Tech Cyber Security · Bennett University
                   </div>
                 </div>
               </div>
@@ -67,15 +67,15 @@ export default function AboutPage() {
 
             {/* Content blocks */}
             <FadeInSection delay={0.3} direction="left">
-              <div style={{ display: "flex", flexDirection: "column", gap: 48 }}>
+              <div className="flex flex-col gap-12">
                 
                 {/* Intro */}
                 <div>
-                  <h3 style={{ fontSize: 20, fontWeight: 600, color: "var(--text-primary)", margin: 0, marginBottom: 16, fontFamily: "var(--font-geist-sans)" }}>The Journey</h3>
-                  <p style={{ fontSize: 16, color: "var(--text-secondary)", lineHeight: 1.8, margin: 0, marginBottom: 16 }}>
+                  <h3 className="text-xl font-semibold text-primary m-0 mb-4 font-sans">The Journey</h3>
+                  <p className="text-base text-secondary leading-[1.8] m-0 mb-4">
                     {aboutData.philosophy}
                   </p>
-                  <p style={{ fontSize: 16, color: "var(--text-secondary)", lineHeight: 1.8, margin: 0 }}>
+                  <p className="text-base text-secondary leading-[1.8] m-0">
                     My focus is on creating production-ready applications that don&apos;t compromise on security. By bridging the gap between offensive security knowledge and defensive software engineering, I aim to build systems that are robust by design.
                   </p>
                 </div>
@@ -84,17 +84,17 @@ export default function AboutPage() {
                 <ScrollTimeline>
                   {/* Experience */}
                   <div className="relative">
-                    <h3 style={{ fontSize: 20, fontWeight: 600, color: "var(--text-primary)", margin: 0, marginBottom: 24, fontFamily: "var(--font-geist-sans)" }}>Experience</h3>
-                    <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+                    <h3 className="text-xl font-semibold text-primary m-0 mb-6 font-sans">Experience</h3>
+                    <div className="flex flex-col gap-8">
                       {aboutData.experience.map((exp, i) => (
                         <div key={i} className="relative">
-                          <div style={{ position: "absolute", left: -31, top: 6, width: 12, height: 12, borderRadius: "50%", background: "var(--accent-gold)", border: "2px solid var(--background)", boxShadow: "0 0 10px var(--glow-gold)", zIndex: 20 }} />
-                          <h4 style={{ fontSize: 16, fontWeight: 600, color: "var(--text-primary)", margin: 0, marginBottom: 4, fontFamily: "var(--font-geist-sans)" }}>{exp.role}</h4>
-                          <div style={{ fontSize: 14, color: "var(--accent-gold)", fontFamily: "var(--font-geist-mono)", marginBottom: 12 }}>{exp.company} | {exp.period}</div>
-                          <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 8 }}>
+                          <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-accent border-2 border-background shadow-[0_0_10px_var(--glow-gold)] z-20" />
+                          <h4 className="text-base font-semibold text-primary m-0 mb-1 font-sans">{exp.role}</h4>
+                          <div className="text-sm text-accent font-mono mb-3">{exp.company} | {exp.period}</div>
+                          <ul className="m-0 p-0 list-none flex flex-col gap-2">
                             {exp.highlights.map((h, j) => (
-                              <li key={j} style={{ fontSize: 14, color: "var(--text-secondary)", lineHeight: 1.6, position: "relative", paddingLeft: 16 }}>
-                                <span style={{ position: "absolute", left: 0, top: 8, width: 4, height: 4, borderRadius: "50%", background: "var(--text-muted)" }} />
+                              <li key={j} className="text-sm text-secondary leading-[1.6] relative pl-4">
+                                <span className="absolute left-0 top-2 w-1 h-1 rounded-full bg-muted" />
                                 {h}
                               </li>
                             ))}
@@ -106,34 +106,34 @@ export default function AboutPage() {
 
                   {/* Education */}
                   <div className="relative pt-4">
-                    <h3 style={{ fontSize: 20, fontWeight: 600, color: "var(--text-primary)", margin: 0, marginBottom: 24, fontFamily: "var(--font-geist-sans)" }}>Education</h3>
+                    <h3 className="text-xl font-semibold text-primary m-0 mb-6 font-sans">Education</h3>
                     <div className="relative">
-                      <div style={{ position: "absolute", left: -31, top: 6, width: 12, height: 12, borderRadius: "50%", background: "var(--text-muted)", border: "2px solid var(--background)", zIndex: 20 }} />
-                      <h4 style={{ fontSize: 16, fontWeight: 600, color: "var(--text-primary)", margin: 0, marginBottom: 4, fontFamily: "var(--font-geist-sans)" }}>{aboutData.education.degree}</h4>
-                      <div style={{ fontSize: 14, color: "var(--text-secondary)", marginBottom: 8 }}>{aboutData.education.institution}</div>
-                      <div style={{ fontSize: 13, fontFamily: "var(--font-geist-mono)", color: "var(--text-muted)" }}>{aboutData.education.expectedGraduation}</div>
+                      <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-muted border-2 border-background z-20" />
+                      <h4 className="text-base font-semibold text-primary m-0 mb-1 font-sans">{aboutData.education.degree}</h4>
+                      <div className="text-sm text-secondary mb-2">{aboutData.education.institution}</div>
+                      <div className="text-[13px] font-mono text-muted">{aboutData.education.expectedGraduation}</div>
                     </div>
                   </div>
 
                   {/* Certifications */}
                   {aboutData.certifications && aboutData.certifications.length > 0 && (
                     <div className="relative pt-4 pb-12">
-                      <h3 style={{ fontSize: 20, fontWeight: 600, color: "var(--text-primary)", margin: 0, marginBottom: 24, fontFamily: "var(--font-geist-sans)" }}>Certifications</h3>
-                      <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+                      <h3 className="text-xl font-semibold text-primary m-0 mb-6 font-sans">Certifications</h3>
+                      <div className="flex flex-col gap-8">
                         {aboutData.certifications.map((cert, i) => (
                           <div key={i} className="relative">
-                            <div style={{ position: "absolute", left: -31, top: 6, width: 12, height: 12, borderRadius: "50%", background: "var(--accent-cyan)", border: "2px solid var(--background)", zIndex: 20 }} />
-                            <h4 style={{ fontSize: 16, fontWeight: 600, color: "var(--text-primary)", margin: 0, marginBottom: 4, fontFamily: "var(--font-geist-sans)" }}>
+                            <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-[var(--accent-cyan)] border-2 border-background z-20" />
+                            <h4 className="text-base font-semibold text-primary m-0 mb-1 font-sans">
                               {cert.href ? (
-                                <a href={cert.href} style={{ color: "var(--text-primary)", textDecoration: "none" }} className="hover:text-accent-gold transition-colors">
+                                <a href={cert.href} className="text-primary no-underline hover:text-accent transition-colors">
                                   {cert.name}
                                 </a>
                               ) : (
                                 cert.name
                               )}
                             </h4>
-                            <div style={{ fontSize: 14, color: "var(--text-secondary)", marginBottom: 8 }}>{cert.issuer}</div>
-                            <div style={{ fontSize: 13, fontFamily: "var(--font-geist-mono)", color: "var(--text-muted)" }}>{cert.year}</div>
+                            <div className="text-sm text-secondary mb-2">{cert.issuer}</div>
+                            <div className="text-[13px] font-mono text-muted">{cert.year}</div>
                           </div>
                         ))}
                       </div>

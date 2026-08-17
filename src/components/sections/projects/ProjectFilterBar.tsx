@@ -10,28 +10,8 @@ interface ProjectFilterBarProps {
 
 export function ProjectFilterBar({ tags, activeTag, onChange }: ProjectFilterBarProps) {
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: 12,
-        flexWrap: "wrap",
-        padding: "0 24px",
-        maxWidth: 1100,
-        margin: "0 auto",
-        marginBottom: 48,
-      }}
-    >
-      <span
-        style={{
-          fontSize: 12,
-          fontFamily: "var(--font-geist-mono)",
-          color: "var(--text-muted)",
-          textTransform: "uppercase",
-          letterSpacing: "0.08em",
-          marginRight: 8,
-        }}
-      >
+    <div className="flex flex-wrap items-center gap-3 px-6 max-w-[1100px] mx-auto mb-12">
+      <span className="text-xs font-mono text-muted uppercase tracking-[0.08em] mr-2">
         Filter by
       </span>
       {tags.map((tag) => (

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Mail, ArrowUp } from "lucide-react";
 import { FiGithub as Github, FiLinkedin as Linkedin } from "react-icons/fi";
 import { useState, useEffect } from "react";
+import { cn } from "@/lib/utils";
 
 const SITE_LINKS = [
   { label: "Home", href: "/" },
@@ -26,79 +27,38 @@ export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer
-      className="border-t"
-      style={{ borderColor: "var(--border)", background: "var(--background)" }}
-    >
+    <footer className="border-t border-border bg-background">
       {/* ── Upper footer ──────────────────────────────────────────────────── */}
       <div className="max-w-[1200px] mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-
           {/* Brand + tagline */}
           <div className="flex flex-col gap-4">
-            <Link href="/" style={{ textDecoration: "none" }}>
-              <span
-                style={{
-                  fontFamily: "var(--font-playfair)",
-                  fontSize: 26,
-                  fontWeight: 500,
-                  letterSpacing: "-0.02em",
-                  color: "var(--text-primary)",
-                }}
-              >
-                Saravpreet<span style={{ color: "var(--text-secondary)", fontStyle: "italic" }}>.</span>
+            <Link href="/" className="no-underline">
+              <span className="font-serif text-[26px] font-medium tracking-tight text-primary">
+                Saravpreet<span className="text-secondary italic">.</span>
               </span>
             </Link>
-            <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.6, maxWidth: 220 }}>
+            <p className="text-[13px] text-muted leading-relaxed max-w-[220px]">
               Securing systems. Shipping products.
             </p>
             {/* Availability pill */}
-            <div
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full w-fit mt-2"
-              style={{
-                background: "var(--background-elevated)",
-                border: "1px solid var(--border)",
-                fontSize: 11,
-                fontFamily: "var(--font-geist-mono)",
-                color: "var(--text-primary)",
-                textTransform: "uppercase",
-                letterSpacing: "0.05em",
-              }}
-            >
-              <span
-                className="w-1.5 h-1.5 rounded-full"
-                style={{ 
-                  background: "var(--accent)",
-                  boxShadow: "0 0 6px rgba(155,168,171,0.5)" 
-                }}
-              />
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full w-fit mt-2 bg-background-elevated border border-border text-[11px] font-mono text-primary uppercase tracking-widest">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_6px_rgba(155,168,171,0.5)]" />
               Available for hire
             </div>
           </div>
 
           {/* Navigation sitemap */}
           <div>
-            <p
-              style={{
-                fontSize: 11,
-                fontFamily: "var(--font-geist-mono)",
-                color: "var(--text-muted)",
-                textTransform: "uppercase",
-                letterSpacing: "0.1em",
-                marginBottom: 16,
-              }}
-            >
+            <p className="text-[11px] font-mono text-muted uppercase tracking-[0.1em] mb-4">
               Navigation
             </p>
-            <ul className="flex flex-col gap-3" style={{ listStyle: "none", margin: 0, padding: 0 }}>
+            <ul className="flex flex-col gap-3 list-none m-0 p-0">
               {SITE_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="footer-nav-link"
-                    style={{ fontSize: 14, color: "var(--text-secondary)", textDecoration: "none", transition: "color 200ms ease" }}
-                    onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--text-primary)")}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--text-secondary)")}
+                    className="text-sm text-secondary no-underline transition-colors duration-200 hover:text-primary active-scale inline-block"
                   >
                     {link.label}
                   </Link>
@@ -109,51 +69,33 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <p
-              style={{
-                fontSize: 11,
-                fontFamily: "var(--font-geist-mono)",
-                color: "var(--text-muted)",
-                textTransform: "uppercase",
-                letterSpacing: "0.1em",
-                marginBottom: 16,
-              }}
-            >
+            <p className="text-[11px] font-mono text-muted uppercase tracking-[0.1em] mb-4">
               Get in Touch
             </p>
             <div className="flex flex-col gap-4">
               <a
                 href="mailto:Sarav.pruthi@gmail.com"
-                className="flex items-center gap-2"
-                style={{ fontSize: 14, color: "var(--text-secondary)", textDecoration: "none", transition: "color 200ms ease" }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--text-primary)")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--text-secondary)")}
+                className="flex items-center gap-2 text-sm text-secondary no-underline transition-colors duration-200 hover:text-primary group"
               >
-                <Mail size={14} style={{ color: "var(--text-muted)" }} />
+                <Mail size={14} className="text-muted group-hover:text-primary transition-colors" />
                 Sarav.pruthi@gmail.com
               </a>
               <a
                 href="https://github.com/00049"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2"
-                style={{ fontSize: 14, color: "var(--text-secondary)", textDecoration: "none", transition: "color 200ms ease" }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--text-primary)")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--text-secondary)")}
+                className="flex items-center gap-2 text-sm text-secondary no-underline transition-colors duration-200 hover:text-primary group"
               >
-                <Github size={14} style={{ color: "var(--text-muted)" }} />
+                <Github size={14} className="text-muted group-hover:text-primary transition-colors" />
                 github.com/00049
               </a>
               <a
                 href="https://linkedin.com/in/saravpreetpruthi"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2"
-                style={{ fontSize: 14, color: "var(--text-secondary)", textDecoration: "none", transition: "color 200ms ease" }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--text-primary)")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--text-secondary)")}
+                className="flex items-center gap-2 text-sm text-secondary no-underline transition-colors duration-200 hover:text-primary group"
               >
-                <Linkedin size={14} style={{ color: "var(--text-muted)" }} />
+                <Linkedin size={14} className="text-muted group-hover:text-primary transition-colors" />
                 linkedin.com/in/saravpreetpruthi
               </a>
             </div>
@@ -162,12 +104,9 @@ export default function Footer() {
       </div>
 
       {/* ── Lower footer ──────────────────────────────────────────────────── */}
-      <div
-        className="border-t"
-        style={{ borderColor: "var(--border)" }}
-      >
+      <div className="border-t border-border">
         <div className="max-w-[1200px] mx-auto px-6 py-5 flex flex-col sm:flex-row justify-between items-center gap-3">
-          <span style={{ fontSize: 12, fontFamily: "var(--font-geist-mono)", color: "var(--text-muted)" }}>
+          <span className="text-[12px] font-mono text-muted">
             © 2025 Saravpreet Singh Pruthi
           </span>
           <div className="flex items-center gap-5">
@@ -175,7 +114,7 @@ export default function Footer() {
               href="https://github.com/00049"
               target="_blank"
               rel="noreferrer"
-              className="footer-icon-link"
+              className="text-muted transition-all duration-200 flex items-center justify-center hover:text-primary hover:-translate-y-0.5 active-scale inline-block"
               aria-label="GitHub profile"
             >
               <Github size={16} />
@@ -184,14 +123,14 @@ export default function Footer() {
               href="https://linkedin.com/in/saravpreetpruthi"
               target="_blank"
               rel="noreferrer"
-              className="footer-icon-link"
+              className="text-muted transition-all duration-200 flex items-center justify-center hover:text-primary hover:-translate-y-0.5 active-scale inline-block"
               aria-label="LinkedIn profile"
             >
               <Linkedin size={16} />
             </a>
             <a
               href="mailto:Sarav.pruthi@gmail.com"
-              className="footer-icon-link"
+              className="text-muted transition-all duration-200 flex items-center justify-center hover:text-primary hover:-translate-y-0.5 active-scale inline-block"
               aria-label="Send email"
             >
               <Mail size={16} />
@@ -204,54 +143,13 @@ export default function Footer() {
       <button
         onClick={scrollToTop}
         aria-label="Scroll to top"
-        style={{
-          position: "fixed",
-          bottom: 32,
-          right: 32,
-          width: 44,
-          height: 44,
-          borderRadius: "50%",
-          background: "var(--background-elevated)",
-          border: "1px solid var(--border)",
-          color: "var(--text-secondary)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          cursor: "pointer",
-          transition: "all 250ms cubic-bezier(0.4, 0, 0.2, 1)",
-          opacity: showTop ? 1 : 0,
-          transform: showTop ? "translateY(0) scale(1)" : "translateY(16px) scale(0.8)",
-          pointerEvents: showTop ? "auto" : "none",
-          zIndex: 50,
-          boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
-        }}
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLButtonElement).style.borderColor = "var(--border-hover)";
-          (e.currentTarget as HTMLButtonElement).style.color = "var(--text-primary)";
-          (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-2px) scale(1.05)";
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLButtonElement).style.borderColor = "var(--border)";
-          (e.currentTarget as HTMLButtonElement).style.color = "var(--text-secondary)";
-          (e.currentTarget as HTMLButtonElement).style.transform = "translateY(0) scale(1)";
-        }}
+        className={cn(
+          "fixed bottom-8 right-8 w-11 h-11 rounded-full bg-background-elevated border border-border text-secondary flex items-center justify-center cursor-pointer transition-all duration-300 z-50 shadow-[0_4px_12px_rgba(0,0,0,0.3)] hover:border-border-hover hover:text-primary hover:-translate-y-0.5 hover:scale-105 active-scale",
+          showTop ? "opacity-100 translate-y-0 scale-100 pointer-events-auto" : "opacity-0 translate-y-4 scale-75 pointer-events-none"
+        )}
       >
         <ArrowUp size={18} />
       </button>
-
-      <style>{`
-        .footer-icon-link {
-          color: var(--text-muted);
-          transition: color 200ms ease, transform 200ms ease;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        .footer-icon-link:hover {
-          color: var(--text-primary);
-          transform: translateY(-2px);
-        }
-      `}</style>
     </footer>
   );
 }

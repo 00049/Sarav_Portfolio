@@ -1,54 +1,65 @@
-interface TagPillProps {
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
+
+const tagPillVariants = cva(
+  "inline-flex items-center text-[11px] font-mono tracking-[0.03em] px-2 py-[3px] rounded-full border whitespace-nowrap transition-all duration-150 select-none",
+  {
+    variants: {
+      variant: {
+        default: "border-border text-muted bg-transparent",
+        accent: "border-border-hover text-secondary bg-[rgba(74,92,106,0.12)]",
+        muted: "border-transparent text-muted bg-transparent",
+      },
+      active: {
+        true: "",
+        false: "",
+      },
+      interactive: {
+        true: "cursor-pointer",
+        false: "cursor-default",
+      }
+    },
+    compoundVariants: [
+      {
+        variant: "default",
+        active: true,
+        className: "border-border-hover text-primary bg-background-card",
+      }
+    ],
+    defaultVariants: {
+      variant: "default",
+      active: false,
+      interactive: false,
+    },
+  }
+);
+
+interface TagPillProps
+  extends React.HTMLAttributes<HTMLSpanElement>,
+    VariantProps<typeof tagPillVariants> {
   label: string;
-  variant?: "default" | "accent" | "muted";
   active?: boolean;
-  onClick?: () => void;
 }
 
-export function TagPill({ label, variant = "default", active = false, onClick }: TagPillProps) {
+export function TagPill({
+  className,
+  label,
+  variant,
+  active = false,
+  onClick,
+  ...props
+}: TagPillProps) {
   const isInteractive = !!onClick;
-
-  const base: React.CSSProperties = {
-    display: "inline-flex",
-    alignItems: "center",
-    fontSize: 11,
-    fontFamily: "var(--font-geist-mono)",
-    letterSpacing: "0.03em",
-    padding: "3px 8px",
-    borderRadius: 999,
-    border: "1px solid",
-    whiteSpace: "nowrap",
-    transition: "all 150ms ease",
-    cursor: isInteractive ? "pointer" : "default",
-    background: "none",
-    userSelect: "none",
-  };
-
-  const variants: Record<string, React.CSSProperties> = {
-    default: {
-      color: active ? "var(--text-primary)" : "var(--text-muted)",
-      borderColor: active ? "var(--border-hover)" : "var(--border)",
-      background: active ? "var(--background-card)" : "transparent",
-    },
-    accent: {
-      color: "var(--text-secondary)",
-      borderColor: "var(--border-hover)",
-      background: "rgba(74, 92, 106, 0.12)",
-    },
-    muted: {
-      color: "var(--text-muted)",
-      borderColor: "transparent",
-      background: "transparent",
-    },
-  };
 
   return (
     <span
       role={isInteractive ? "button" : undefined}
       tabIndex={isInteractive ? 0 : undefined}
       onClick={onClick}
-      onKeyDown={onClick ? (e) => e.key === "Enter" && onClick() : undefined}
-      style={{ ...base, ...variants[variant] }}
+      onKeyDown={isInteractive ? (e) => e.key === "Enter" && onClick?.(e as unknown as React.MouseEvent<HTMLSpanElement>) : undefined}
+      className={cn(tagPillVariants({ variant, active, interactive: isInteractive, className }))}
+      {...props}
     >
       {label}
     </span>

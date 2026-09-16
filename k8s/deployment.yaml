@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: sarav-portfolio
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: sarav-portfolio
+
+  template:
+    metadata:
+      labels:
+        app: sarav-portfolio
+
+    spec:
+      containers:
+        - name: portfolio
+          image: 717304679051.dkr.ecr.us-east-1.amazonaws.com/sarav-portfolio:v5
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 10
+
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: 3000
+            initialDelaySeconds: 30
+            periodSeconds: 20

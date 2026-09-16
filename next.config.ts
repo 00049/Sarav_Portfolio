@@ -1,7 +1,8 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  
+  output: 'standalone',
+
   // Enable React strict mode for catching issues early
   reactStrictMode: true,
   
@@ -51,6 +52,7 @@ const nextConfig: NextConfig = {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()'
           },
+
           // Content Security Policy
           {
             key: 'Content-Security-Policy',
@@ -69,6 +71,7 @@ const nextConfig: NextConfig = {
           }
         ],
       },
+
       // Cache static assets aggressively
       {
         source: '/(.*)\\.(ico|png|jpg|jpeg|svg|webp|avif|woff|woff2)',
@@ -79,6 +82,7 @@ const nextConfig: NextConfig = {
           }
         ]
       },
+
       // Cache resume PDF
       {
         source: '/resume.pdf',

@@ -1,0 +1,10 @@
+services:
+  portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sarav-portfolio
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    

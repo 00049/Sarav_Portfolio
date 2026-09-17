@@ -44,6 +44,18 @@ pipeline {
                 '''
             }
         }
+        stage('Trivy Scan') {
+            steps {
+                sh '''
+                    trivy image \
+                  --config /dev/null \
+                  --scanners vuln \
+                  --ignorefile /dev/null \
+                 --severity HIGH,CRITICAL \
+                  $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+                '''
+            }
+        }
 
         stage('Login to ECR') {
             steps {

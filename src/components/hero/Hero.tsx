@@ -103,7 +103,7 @@ export function Hero() {
                
                {/* Line 1: ARCHITECTING */}
                <h1 className={`text-[13vw] md:text-[9vw] lg:text-[10vw] leading-[0.9] font-medium tracking-tighter text-white/95 ${playfair.className} drop-shadow-lg`}>
-                 ARCHITECTING
+                 LETSGOOOO 
                </h1>
 
                {/* Line 2 & 3: secure SYSTEMS */}

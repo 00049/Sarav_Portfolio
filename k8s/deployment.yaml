@@ -30,7 +30,7 @@ spec:
             limits:
               cpu: "500m"
               memory: "512Mi"
-          ₹readinessProbe:
+          readinessProbe:
             httpGet:
               path: /api/health
               port: 3000

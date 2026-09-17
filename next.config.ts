@@ -66,7 +66,6 @@ const nextConfig: NextConfig = {
               "worker-src 'self' blob:",
               "frame-ancestors 'none'",
               "form-action 'self'",
-              "upgrade-insecure-requests"
             ].join('; ')
           }
         ],
